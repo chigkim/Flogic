@@ -139,7 +139,13 @@ vo.output("Inspector off")
 		<key>Activate</key>
 		<string>Normal</string>
 		<key>CreationDate</key>
-		<real>499539568.21792102</real>
+		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> - Tracks$</string>
+		<key>IsActive</key>
+		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -160,14 +166,14 @@ sys = Application("System Events")
 lg = sys.applicationProcesses.byName("Logic Pro X")
 windows = lg.windows
 window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
-description = window.groups[0].groups[0].groups[1].description()
-sliders = window.groups[0].groups[0].groups[1].sliders()
-msg = ""
-for (s in sliders) {
-msg+=sliders[s].description()+" "+sliders[s].value()+", "
+group = window.groups.whose({description:"Inspector"})[0]
+specifier = ObjectSpecifier().staticTexts[0].name
+value = group.lists[0].groups.whose({_match:[specifier,{_equals:"Track:"}]}).textFields[0].value()
+if (value == "") {
+value = group.lists[0].groups.whose({_match:[specifier,{_equals:"Track:"}]}).staticTexts[1].name()
 }
-msg += description
-vo.output(msg)
+msg = ""+value
+vo.output(value)
 </string>
 						<key>TimeOutAbortsMacro</key>
 						<true/>
@@ -180,30 +186,30 @@ vo.output(msg)
 					</dict>
 				</array>
 				<key>CreationDate</key>
-				<real>499545345.661502</real>
+				<real>499548605.26653099</real>
 				<key>ModificationDate</key>
-				<real>499545436.40506899</real>
+				<real>524098344.494133</real>
 				<key>Name</key>
-				<string>Playhead Position Alternate</string>
+				<string>Speak Current Track</string>
 				<key>Triggers</key>
 				<array>
 					<dict>
 						<key>FireType</key>
 						<string>Pressed</string>
 						<key>KeyCode</key>
-						<integer>118</integer>
+						<integer>17</integer>
 						<key>MacroTriggerType</key>
 						<string>HotKey</string>
 						<key>Modifiers</key>
-						<integer>256</integer>
+						<integer>0</integer>
 					</dict>
 				</array>
 				<key>UID</key>
-				<string>040ED51F-8D13-4BF3-9021-02CD12555B5E</string>
+				<string>B048A493-C44C-486F-9D8E-68BE3CA6B760</string>
 			</dict>
 		</array>
 		<key>Name</key>
-		<string>Flogic</string>
+		<string>Flogic Inspector</string>
 		<key>Targeting</key>
 		<dict>
 			<key>Targeting</key>
@@ -221,9 +227,9 @@ vo.output(msg)
 			</array>
 		</dict>
 		<key>ToggleMacroUID</key>
-		<string>5B52B143-96D5-42A8-BF6B-9D1E6FF1240F</string>
+		<string>9749998D-2FB3-4417-B4AB-A3A8D60962C2</string>
 		<key>UID</key>
-		<string>C52D9A0D-70FA-4012-B37E-ABE66F0A7841</string>
+		<string>64EAC9F9-2720-4CE3-99DE-8A54F07FC4E9</string>
 	</dict>
 	<dict>
 		<key>Activate</key>
@@ -346,7 +352,7 @@ mutesp = ObjectSpecifier().checkboxes[muteIndex].value
 tracks = tracks.groups.whose({_match:[mutesp,1]}).description()
 msg = ""
 for (t in tracks) {
-msg += tracks[t].match(/“(.*?)”/)[1]+". "
+msg += tracks[t].match(/“(.*?)”/)[1]+", "
 }
 if (msg=="") msg = "No tracks are muted."
 else msg = tracks.length+": "+msg
@@ -399,7 +405,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>489906430.29756999</real>
 				<key>ModificationDate</key>
-				<real>524089470.45745802</real>
+				<real>524096345.876957</real>
 				<key>Name</key>
 				<string>Speak Muted Tracks/Unmute All Tracks</string>
 				<key>Triggers</key>
@@ -417,6 +423,186 @@ if (runSingle) single()
 				</array>
 				<key>UID</key>
 				<string>3DBC5713-853F-444B-A526-92B1F2A8F283</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>Flogic</string>
+		<key>Targeting</key>
+		<dict>
+			<key>Targeting</key>
+			<string>Included</string>
+			<key>TargetingApps</key>
+			<array>
+				<dict>
+					<key>BundleIdentifier</key>
+					<string>com.apple.logic10</string>
+					<key>Name</key>
+					<string>Logic Pro X</string>
+					<key>NewFile</key>
+					<string>/Applications/Logic Pro X.app</string>
+				</dict>
+			</array>
+		</dict>
+		<key>ToggleMacroUID</key>
+		<string>5B52B143-96D5-42A8-BF6B-9D1E6FF1240F</string>
+		<key>UID</key>
+		<string>C52D9A0D-70FA-4012-B37E-ABE66F0A7841</string>
+	</dict>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>CreationDate</key>
+		<real>499539568.21792102</real>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>DisplayKind</key>
+						<string>None</string>
+						<key>IncludeStdErr</key>
+						<true/>
+						<key>MacroActionType</key>
+						<string>ExecuteJavaScriptForAutomation</string>
+						<key>Path</key>
+						<string></string>
+						<key>Text</key>
+						<string>vo = Application("VoiceOver")
+sys = Application("System Events")
+lg = sys.applicationProcesses.byName("Logic Pro X")
+windows = lg.windows
+window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
+description = window.groups[0].groups[0].groups[0].description()
+sliders = window.groups[0].groups[0].groups[0].sliders()
+msg = ""
+for (s in sliders) {
+msg+=sliders[s].description()+" "+sliders[s].value()+", "
+}
+msg += description
+vo.output(msg)
+</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>TrimResultsNew</key>
+						<true/>
+						<key>UseText</key>
+						<true/>
+					</dict>
+				</array>
+				<key>CreationDate</key>
+				<real>499539582.64421701</real>
+				<key>ModificationDate</key>
+				<real>524098614.26291901</real>
+				<key>Name</key>
+				<string>Speak Playhead Position</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>122</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>256</integer>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>3BEC1B6F-80CC-4809-AEFE-697F075EC09A</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>Flogic</string>
+		<key>Targeting</key>
+		<dict>
+			<key>Targeting</key>
+			<string>Included</string>
+			<key>TargetingApps</key>
+			<array>
+				<dict>
+					<key>BundleIdentifier</key>
+					<string>com.apple.logic10</string>
+					<key>Name</key>
+					<string>Logic Pro X</string>
+					<key>NewFile</key>
+					<string>/Applications/Logic Pro X.app</string>
+				</dict>
+			</array>
+		</dict>
+		<key>ToggleMacroUID</key>
+		<string>5B52B143-96D5-42A8-BF6B-9D1E6FF1240F</string>
+		<key>UID</key>
+		<string>C52D9A0D-70FA-4012-B37E-ABE66F0A7841</string>
+	</dict>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>CreationDate</key>
+		<real>499539568.21792102</real>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>DisplayKind</key>
+						<string>None</string>
+						<key>IncludeStdErr</key>
+						<true/>
+						<key>MacroActionType</key>
+						<string>ExecuteJavaScriptForAutomation</string>
+						<key>Path</key>
+						<string></string>
+						<key>Text</key>
+						<string>vo = Application("VoiceOver")
+sys = Application("System Events")
+lg = sys.applicationProcesses.byName("Logic Pro X")
+windows = lg.windows
+window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
+description = window.groups[0].groups[0].groups[1].description()
+sliders = window.groups[0].groups[0].groups[1].sliders()
+msg = ""
+for (s in sliders) {
+msg+=sliders[s].description()+" "+sliders[s].value()+", "
+}
+msg += description
+vo.output(msg)
+</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>TrimResultsNew</key>
+						<true/>
+						<key>UseText</key>
+						<true/>
+					</dict>
+				</array>
+				<key>CreationDate</key>
+				<real>499545345.661502</real>
+				<key>ModificationDate</key>
+				<real>524098635.08687901</real>
+				<key>Name</key>
+				<string>Speak Playhead Position Alternate</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>118</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>256</integer>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>040ED51F-8D13-4BF3-9021-02CD12555B5E</string>
 			</dict>
 		</array>
 		<key>Name</key>
@@ -535,6 +721,102 @@ vo.output(msg)
 		<key>Activate</key>
 		<string>Normal</string>
 		<key>CreationDate</key>
+		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> - Tracks$</string>
+		<key>IsActive</key>
+		<false/>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>DisplayKind</key>
+						<string>None</string>
+						<key>IncludeStdErr</key>
+						<true/>
+						<key>MacroActionType</key>
+						<string>ExecuteJavaScriptForAutomation</string>
+						<key>Path</key>
+						<string></string>
+						<key>Text</key>
+						<string>vo = Application("VoiceOver")
+sys = Application("System Events")
+lg = sys.applicationProcesses.byName("Logic Pro X")
+windows = lg.windows
+window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
+group = window.groups.whose({description:"Inspector"})[0]
+specifier = ObjectSpecifier().staticTexts[0].name
+value = group.lists[0].groups.whose({_match:[specifier,{_equals:"Region:"}]}).textFields[0].value()
+if (value == "") {
+value = group.lists[0].groups.whose({_match:[specifier,{_equals:"Region:"}]}).staticTexts[1].name()
+}
+msg = ""+value
+vo.output(value)
+</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>TrimResultsNew</key>
+						<true/>
+						<key>UseText</key>
+						<true/>
+					</dict>
+				</array>
+				<key>CreationDate</key>
+				<real>499547096.50015402</real>
+				<key>ModificationDate</key>
+				<real>524098208.851062</real>
+				<key>Name</key>
+				<string>Speak Selected Region</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>15</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>0</integer>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>4B40FF8C-A35F-4591-9E2F-AAF5DD3A3E58</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>Flogic Inspector</string>
+		<key>Targeting</key>
+		<dict>
+			<key>Targeting</key>
+			<string>Included</string>
+			<key>TargetingApps</key>
+			<array>
+				<dict>
+					<key>BundleIdentifier</key>
+					<string>com.apple.logic10</string>
+					<key>Name</key>
+					<string>Logic Pro X</string>
+					<key>NewFile</key>
+					<string>/Applications/Logic Pro X.app</string>
+				</dict>
+			</array>
+		</dict>
+		<key>ToggleMacroUID</key>
+		<string>9749998D-2FB3-4417-B4AB-A3A8D60962C2</string>
+		<key>UID</key>
+		<string>64EAC9F9-2720-4CE3-99DE-8A54F07FC4E9</string>
+	</dict>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>CreationDate</key>
 		<real>499539568.21792102</real>
 		<key>Macros</key>
 		<array>
@@ -563,7 +845,7 @@ solosp = ObjectSpecifier().checkboxes[soloIndex].value
 tracks = tracks.groups.whose({_match:[solosp,1]}).description()
 msg = ""
 for (t in tracks) {
-msg += tracks[t].match(/“(.*?)”/)[1]+". "
+msg += tracks[t].match(/“(.*?)”/)[1]+", "
 }
 if (msg=="") msg = "No tracks are muted."
 else msg = tracks.length+": "+msg
@@ -617,7 +899,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>524089506.15395403</real>
 				<key>ModificationDate</key>
-				<real>524089789.87346601</real>
+				<real>524096384.2507</real>
 				<key>Name</key>
 				<string>Speak Soloed Tracks/Unsolo All Tracks</string>
 				<key>Triggers</key>
@@ -669,6 +951,8 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
+		<key>IsActive</key>
+		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -676,7 +960,7 @@ if (runSingle) single()
 				<array>
 					<dict>
 						<key>DisplayKind</key>
-						<string>Window</string>
+						<string>None</string>
 						<key>IncludeStdErr</key>
 						<true/>
 						<key>MacroActionType</key>
@@ -704,7 +988,7 @@ vo.output(msg)</string>
 				<key>CreationDate</key>
 				<real>499553352.65371102</real>
 				<key>ModificationDate</key>
-				<real>519779108.90549302</real>
+				<real>524092195.53912801</real>
 				<key>Name</key>
 				<string>Speak Volume</string>
 				<key>Triggers</key>
@@ -751,410 +1035,13 @@ vo.output(msg)</string>
 		<key>Activate</key>
 		<string>Normal</string>
 		<key>CreationDate</key>
-		<real>499539568.21792102</real>
-		<key>Macros</key>
-		<array>
-			<dict>
-				<key>Actions</key>
-				<array>
-					<dict>
-						<key>DisplayKind</key>
-						<string>Window</string>
-						<key>IncludeStdErr</key>
-						<true/>
-						<key>MacroActionType</key>
-						<string>ExecuteJavaScriptForAutomation</string>
-						<key>Path</key>
-						<string></string>
-						<key>Text</key>
-						<string>currentCommand = "cf1"
-
-function single() {
-vo = Application("VoiceOver")
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
-description = window.groups[0].groups[0].groups[0].description()
-sliders = window.groups[0].groups[0].groups[0].sliders()
-msg = ""
-for (s in sliders) {
-msg+=sliders[s].description()+" "+sliders[s].value()+", "
-}
-msg += description
-vo.output(msg)
-}
-
-function double() {
-vo = Application("VoiceOver")
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
-
-position = window.groups[0].groups[0].groups[0].position()
-size = window.groups[0].groups[0].groups[0].size()
-
-x = position[0]+size[0]/2
-y = position[1]+size[1]/2
-
-vo.mouseCursor.position.set([x,y])
-vo.mouseCursor.click({NumberOfTimesToClick:"twice", mouseButtonToClick:"left button"})
-msg = x+", "+y+"Type playhead position"
-vo.output(msg)
-}
-
-kme = Application("Keyboard Maestro Engine")
-command = kme.getvariable("command").split(".")
-start = new Date().getTime()
-kme.setvariable("command", {to:currentCommand+"."+start})
-if (currentCommand == command[0] &amp; start-command[1]&lt;200) {
-kme.playSound(Path("/System/Library/Sounds/Tink.aiff"))
-double()
-} else  {
-runSingle = true
-while (new Date().getTime()-start&lt;200) {
-command = kme.getvariable("command").split(".")
-if (currentCommand == command[0] &amp; command[1]&gt;start) {
-runSingle=false
-break;
-}
-}
-if (runSingle) single()
-}
-</string>
-						<key>TimeOutAbortsMacro</key>
-						<true/>
-						<key>TrimResults</key>
-						<true/>
-						<key>TrimResultsNew</key>
-						<true/>
-						<key>UseText</key>
-						<true/>
-					</dict>
-				</array>
-				<key>CreationDate</key>
-				<real>499539582.64421701</real>
-				<key>ModificationDate</key>
-				<real>499649894.362656</real>
-				<key>Name</key>
-				<string>Speak/Edit Playhead Position</string>
-				<key>Triggers</key>
-				<array>
-					<dict>
-						<key>FireType</key>
-						<string>Pressed</string>
-						<key>KeyCode</key>
-						<integer>122</integer>
-						<key>MacroTriggerType</key>
-						<string>HotKey</string>
-						<key>Modifiers</key>
-						<integer>256</integer>
-					</dict>
-				</array>
-				<key>UID</key>
-				<string>3BEC1B6F-80CC-4809-AEFE-697F075EC09A</string>
-			</dict>
-		</array>
-		<key>Name</key>
-		<string>Flogic</string>
-		<key>Targeting</key>
-		<dict>
-			<key>Targeting</key>
-			<string>Included</string>
-			<key>TargetingApps</key>
-			<array>
-				<dict>
-					<key>BundleIdentifier</key>
-					<string>com.apple.logic10</string>
-					<key>Name</key>
-					<string>Logic Pro X</string>
-					<key>NewFile</key>
-					<string>/Applications/Logic Pro X.app</string>
-				</dict>
-			</array>
-		</dict>
-		<key>ToggleMacroUID</key>
-		<string>5B52B143-96D5-42A8-BF6B-9D1E6FF1240F</string>
-		<key>UID</key>
-		<string>C52D9A0D-70FA-4012-B37E-ABE66F0A7841</string>
-	</dict>
-	<dict>
-		<key>Activate</key>
-		<string>Normal</string>
-		<key>CreationDate</key>
 		<real>499546191.00478101</real>
 		<key>FocussedWindowConditionType</key>
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
-		<key>Macros</key>
-		<array>
-			<dict>
-				<key>Actions</key>
-				<array>
-					<dict>
-						<key>DisplayKind</key>
-						<string>None</string>
-						<key>IncludeStdErr</key>
-						<true/>
-						<key>MacroActionType</key>
-						<string>ExecuteJavaScriptForAutomation</string>
-						<key>Path</key>
-						<string></string>
-						<key>Text</key>
-						<string>currentCommand = "r"
-
-function single() {
-vo = Application("VoiceOver")
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
-group = window.groups.whose({description:"Inspector"})[0]
-try {
-specifier = ObjectSpecifier().staticTexts[0].name
-value = group.lists[0].groups.whose({_match:[specifier,{_equals:"Region:"}]}).textFields[0].value()
-} catch(err) {
-value = group.lists[0].groups[0].staticTexts[1].value()
-}
-msg = ""+value
-vo.output(value)
-}
-
-function double() {
-vo = Application("VoiceOver")
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
-group = window.groups.whose({description:"Inspector"})[0]
-try {
-group.lists[0].groups[0].textFields[0].click()
-vo.output("Edit region name")
-} catch(err) {
-vo.output("Can't edit region name")
-}
-}
-
-kme = Application("Keyboard Maestro Engine")
-command = kme.getvariable("command").split(".")
-start = new Date().getTime()
-kme.setvariable("command", {to:currentCommand+"."+start})
-if (currentCommand == command[0] &amp; start-command[1]&lt;200) {
-kme.playSound(Path("/System/Library/Sounds/Tink.aiff"))
-double()
-} else  {
-runSingle = true
-while (new Date().getTime()-start&lt;200) {
-command = kme.getvariable("command").split(".")
-if (currentCommand == command[0] &amp; command[1]&gt;start) {
-runSingle=false
-break;
-}
-}
-if (runSingle) single()
-}
-</string>
-						<key>TimeOutAbortsMacro</key>
-						<true/>
-						<key>TrimResults</key>
-						<true/>
-						<key>TrimResultsNew</key>
-						<true/>
-						<key>UseText</key>
-						<true/>
-					</dict>
-				</array>
-				<key>CreationDate</key>
-				<real>499547096.50015402</real>
-				<key>ModificationDate</key>
-				<real>520575783.26789898</real>
-				<key>Name</key>
-				<string>Speak/edit Selected Region Name</string>
-				<key>Triggers</key>
-				<array>
-					<dict>
-						<key>FireType</key>
-						<string>Pressed</string>
-						<key>KeyCode</key>
-						<integer>15</integer>
-						<key>MacroTriggerType</key>
-						<string>HotKey</string>
-						<key>Modifiers</key>
-						<integer>0</integer>
-					</dict>
-				</array>
-				<key>UID</key>
-				<string>4B40FF8C-A35F-4591-9E2F-AAF5DD3A3E58</string>
-			</dict>
-		</array>
-		<key>Name</key>
-		<string>Flogic Inspector</string>
-		<key>Targeting</key>
-		<dict>
-			<key>Targeting</key>
-			<string>Included</string>
-			<key>TargetingApps</key>
-			<array>
-				<dict>
-					<key>BundleIdentifier</key>
-					<string>com.apple.logic10</string>
-					<key>Name</key>
-					<string>Logic Pro X</string>
-					<key>NewFile</key>
-					<string>/Applications/Logic Pro X.app</string>
-				</dict>
-			</array>
-		</dict>
-		<key>ToggleMacroUID</key>
-		<string>9749998D-2FB3-4417-B4AB-A3A8D60962C2</string>
-		<key>UID</key>
-		<string>64EAC9F9-2720-4CE3-99DE-8A54F07FC4E9</string>
-	</dict>
-	<dict>
-		<key>Activate</key>
-		<string>Normal</string>
-		<key>CreationDate</key>
-		<real>499546191.00478101</real>
-		<key>FocussedWindowConditionType</key>
-		<string>TitleMatches</string>
-		<key>FocussedWindowTitle</key>
-		<string> - Tracks$</string>
-		<key>Macros</key>
-		<array>
-			<dict>
-				<key>Actions</key>
-				<array>
-					<dict>
-						<key>DisplayKind</key>
-						<string>None</string>
-						<key>IncludeStdErr</key>
-						<true/>
-						<key>MacroActionType</key>
-						<string>ExecuteJavaScriptForAutomation</string>
-						<key>Path</key>
-						<string></string>
-						<key>Text</key>
-						<string>currentCommand = "t"
-
-function single() {
-vo = Application("VoiceOver")
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
-group = window.groups.whose({description:"Inspector"})[0]
-try {
-specifier = ObjectSpecifier().staticTexts[0].name
-value = group.lists[0].groups.whose({_match:[specifier,{_equals:"Track:"}]}).textFields[0].value()
-} catch(err) {
-value = group.lists[0].groups[1].staticTexts[1].value()
-}
-msg = ""+value
-vo.output(value)
-}
-
-function double() {
-vo = Application("VoiceOver")
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
-group = window.groups.whose({description:"Inspector"})[0]
-try {
-specifier = ObjectSpecifier().staticTexts[0].name
-group.lists[0].groups.whose({_match:[specifier,{_equals:"Track:"}]}).textFields[0].click()
-vo.output("Edit track name")
-} catch(err) {
-vo.output("Can't edit track name")
-}
-}
-
-kme = Application("Keyboard Maestro Engine")
-command = kme.getvariable("command").split(".")
-start = new Date().getTime()
-kme.setvariable("command", {to:currentCommand+"."+start})
-if (currentCommand == command[0] &amp; start-command[1]&lt;200) {
-kme.playSound(Path("/System/Library/Sounds/Tink.aiff"))
-double()
-} else  {
-runSingle = true
-while (new Date().getTime()-start&lt;200) {
-command = kme.getvariable("command").split(".")
-if (currentCommand == command[0] &amp; command[1]&gt;start) {
-runSingle=false
-break;
-}
-}
-if (runSingle) single()
-}
-</string>
-						<key>TimeOutAbortsMacro</key>
-						<true/>
-						<key>TrimResults</key>
-						<true/>
-						<key>TrimResultsNew</key>
-						<true/>
-						<key>UseText</key>
-						<true/>
-					</dict>
-				</array>
-				<key>CreationDate</key>
-				<real>499548605.26653099</real>
-				<key>ModificationDate</key>
-				<real>520576020.73084903</real>
-				<key>Name</key>
-				<string>Speak/Edit Selected Track Name</string>
-				<key>Triggers</key>
-				<array>
-					<dict>
-						<key>FireType</key>
-						<string>Pressed</string>
-						<key>KeyCode</key>
-						<integer>17</integer>
-						<key>MacroTriggerType</key>
-						<string>HotKey</string>
-						<key>Modifiers</key>
-						<integer>0</integer>
-					</dict>
-				</array>
-				<key>UID</key>
-				<string>B048A493-C44C-486F-9D8E-68BE3CA6B760</string>
-			</dict>
-		</array>
-		<key>Name</key>
-		<string>Flogic Inspector</string>
-		<key>Targeting</key>
-		<dict>
-			<key>Targeting</key>
-			<string>Included</string>
-			<key>TargetingApps</key>
-			<array>
-				<dict>
-					<key>BundleIdentifier</key>
-					<string>com.apple.logic10</string>
-					<key>Name</key>
-					<string>Logic Pro X</string>
-					<key>NewFile</key>
-					<string>/Applications/Logic Pro X.app</string>
-				</dict>
-			</array>
-		</dict>
-		<key>ToggleMacroUID</key>
-		<string>9749998D-2FB3-4417-B4AB-A3A8D60962C2</string>
-		<key>UID</key>
-		<string>64EAC9F9-2720-4CE3-99DE-8A54F07FC4E9</string>
-	</dict>
-	<dict>
-		<key>Activate</key>
-		<string>Normal</string>
-		<key>CreationDate</key>
-		<real>499546191.00478101</real>
-		<key>FocussedWindowConditionType</key>
-		<string>TitleMatches</string>
-		<key>FocussedWindowTitle</key>
-		<string> - Tracks$</string>
+		<key>IsActive</key>
+		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -1398,6 +1285,8 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
+		<key>IsActive</key>
+		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -1520,6 +1409,8 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
+		<key>IsActive</key>
+		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -1641,6 +1532,8 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
+		<key>IsActive</key>
+		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -1762,6 +1655,8 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
+		<key>IsActive</key>
+		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -1884,6 +1779,8 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
+		<key>IsActive</key>
+		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -2013,6 +1910,8 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
+		<key>IsActive</key>
+		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
