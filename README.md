@@ -1,9 +1,17 @@
 # Flogic
 Keyboard Maestro Macros for Voiceover users using Logic Pro x
 
-WARNING: USE AT YOUR OWN RISK! This is in pre-alpha cycle. Many things may not be working properly yet. 
+WARNING: USE AT YOUR OWN RISK! This is in alpha cycle. Many things may not work and change frequently without notice.
 
-## Instalation
+This is purely volunteers based project. Please consider contributing to the project. There are many ways you can contribute even without knowledge in programming.
+* Documentation
+* Proof reading
+* Tutorials
+* Testing
+* Ideas
+* Scripting
+
+## Installation
 * Import the macros into Keyboard Maestro
 * Make sure main window is open on Logic
 * Make sure toolbar is shown and select custom from display mode
@@ -20,7 +28,7 @@ Please note: Some of the commands has single/double taps.
 * Speak alternate playhead position: command+f4
 * Speak muted tracks/unmute all tracks: option+shift+m
 * Speak soloed tracks/unsolo all tracks: option+shift+s
-* Speak/select displaymode: command+f12
+* Speak/select display mode: command+f12
 * Speak/select division value: command+f6
 * Toggle/Speak cycle: control+shift+c
 
