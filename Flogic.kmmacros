@@ -144,8 +144,6 @@ vo.output("Inspector off")
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
-		<key>IsActive</key>
-		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -355,7 +353,7 @@ for (t in tracks) {
 msg += tracks[t].match(/“(.*?)”/)[1]+", "
 }
 if (msg=="") msg = "No tracks are muted."
-else msg = tracks.length+": "+msg
+else msg = tracks.length+" muted: "+msg
 vo.output(msg)
 }
 function double() {
@@ -405,7 +403,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>489906430.29756999</real>
 				<key>ModificationDate</key>
-				<real>524096345.876957</real>
+				<real>524161105.09331799</real>
 				<key>Name</key>
 				<string>Speak Muted Tracks/Unmute All Tracks</string>
 				<key>Triggers</key>
@@ -726,8 +724,6 @@ vo.output(msg)
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
-		<key>IsActive</key>
-		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -847,8 +843,8 @@ msg = ""
 for (t in tracks) {
 msg += tracks[t].match(/“(.*?)”/)[1]+", "
 }
-if (msg=="") msg = "No tracks are muted."
-else msg = tracks.length+": "+msg
+if (msg=="") msg = "No tracks are soloed."
+else msg = tracks.length+" soloed: "+msg
 vo.output(msg)
 }
 function double() {
@@ -863,7 +859,7 @@ tracks = tracks.groups.whose({_match:[solosp,1]}).checkboxes[soloIndex]()
 for (t in tracks) {
 tracks[t].click()
 }
-vo.output("Unmuted all tracks")
+vo.output("Unsoloed all tracks")
 }
 
 kme = Application("Keyboard Maestro Engine")
@@ -899,7 +895,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>524089506.15395403</real>
 				<key>ModificationDate</key>
-				<real>524096384.2507</real>
+				<real>524161079.88200903</real>
 				<key>Name</key>
 				<string>Speak Soloed Tracks/Unsolo All Tracks</string>
 				<key>Triggers</key>
@@ -951,8 +947,6 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
-		<key>IsActive</key>
-		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -1040,8 +1034,6 @@ vo.output(msg)</string>
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
-		<key>IsActive</key>
-		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -1401,8 +1393,6 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
-		<key>IsActive</key>
-		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -1525,8 +1515,6 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
-		<key>IsActive</key>
-		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -1648,8 +1636,6 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
-		<key>IsActive</key>
-		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -1771,8 +1757,6 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
-		<key>IsActive</key>
-		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -1895,8 +1879,6 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
-		<key>IsActive</key>
-		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -2026,8 +2008,6 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
-		<key>IsActive</key>
-		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
