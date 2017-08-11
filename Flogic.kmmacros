@@ -1188,6 +1188,122 @@ sys = Application("System Events")
 lg = sys.applicationProcesses.byName("Logic Pro X")
 windows = lg.windows
 window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
+pop = window.groups.whose({description:{_contains:"Control Bar"}})[0].groups.whose({description:{_contains:"Control Bar"}})[0].popUpButtons.whose({help:{_contains:"Display Mode pop-up menu"}})[0]
+msg = ""+pop.value()
+vo.output(msg)
+}
+
+function double() {
+sys = Application("System Events")
+lg = sys.applicationProcesses.byName("Logic Pro X")
+windows = lg.windows
+window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
+window.groups.whose({description:{_contains:"Control Bar"}})[0].groups.whose({description:{_contains:"Control Bar"}})[0].popUpButtons.whose({help:{_contains:"Display Mode pop-up menu"}})[0].click()
+}
+
+kme = Application("Keyboard Maestro Engine")
+command = kme.getvariable("command").split(".")
+start = new Date().getTime()
+kme.setvariable("command", {to:currentCommand+"."+start})
+if (currentCommand == command[0] &amp; start-command[1]&lt;200) {
+kme.playSound(Path("/System/Library/Sounds/Tink.aiff"))
+double()
+} else  {
+runSingle = true
+while (new Date().getTime()-start&lt;200) {
+command = kme.getvariable("command").split(".")
+if (currentCommand == command[0] &amp; command[1]&gt;start) {
+runSingle=false
+break;
+}
+}
+if (runSingle) single()
+}
+</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>TrimResultsNew</key>
+						<true/>
+						<key>UseText</key>
+						<true/>
+					</dict>
+				</array>
+				<key>CreationDate</key>
+				<real>524117605.19872898</real>
+				<key>ModificationDate</key>
+				<real>524117705.05586898</real>
+				<key>Name</key>
+				<string>Speak/Select Display Mode</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>111</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>256</integer>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>51DBD0CB-5C1C-46BC-B83B-4973EDD97F6E</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>Flogic</string>
+		<key>Targeting</key>
+		<dict>
+			<key>Targeting</key>
+			<string>Included</string>
+			<key>TargetingApps</key>
+			<array>
+				<dict>
+					<key>BundleIdentifier</key>
+					<string>com.apple.logic10</string>
+					<key>Name</key>
+					<string>Logic Pro X</string>
+					<key>NewFile</key>
+					<string>/Applications/Logic Pro X.app</string>
+				</dict>
+			</array>
+		</dict>
+		<key>ToggleMacroUID</key>
+		<string>5B52B143-96D5-42A8-BF6B-9D1E6FF1240F</string>
+		<key>UID</key>
+		<string>C52D9A0D-70FA-4012-B37E-ABE66F0A7841</string>
+	</dict>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>CreationDate</key>
+		<real>499539568.21792102</real>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>DisplayKind</key>
+						<string>None</string>
+						<key>IncludeStdErr</key>
+						<true/>
+						<key>MacroActionType</key>
+						<string>ExecuteJavaScriptForAutomation</string>
+						<key>Path</key>
+						<string></string>
+						<key>Text</key>
+						<string>currentCommand = "cf6"
+
+function single() {
+vo = Application("VoiceOver")
+sys = Application("System Events")
+lg = sys.applicationProcesses.byName("Logic Pro X")
+windows = lg.windows
+window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
 pop = window.groups[0].groups[0].popUpButtons[2]()
 msg = ""+pop.value()+", Division"
 vo.output(msg)
@@ -2100,7 +2216,7 @@ else vo.output("Cycle off")
 				<key>CreationDate</key>
 				<real>504407929.39738297</real>
 				<key>ModificationDate</key>
-				<real>524089294.58284301</real>
+				<real>524117857.42701</real>
 				<key>Name</key>
 				<string>Toggle Cycle</string>
 				<key>Triggers</key>
@@ -2113,7 +2229,7 @@ else vo.output("Cycle off")
 						<key>MacroTriggerType</key>
 						<string>HotKey</string>
 						<key>Modifiers</key>
-						<integer>0</integer>
+						<integer>768</integer>
 					</dict>
 				</array>
 				<key>UID</key>
