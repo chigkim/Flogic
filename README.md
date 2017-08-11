@@ -4,7 +4,9 @@ Keyboard Maestro Macros for Voiceover users using Logic Pro x
 
 WARNING: USE AT YOUR OWN RISK! This is in alpha cycle. Many things may not work and change frequently without notice.
 
-This is purely volunteers based project. Please consider contributing to the project. There are many ways you can contribute even without knowledge in programming.
+Flogic is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY, expressed or implied, of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. Please see the [GNU General Public License](http://www.gnu.org/licenses/) for more details.
+
+Flogic is exclusively developed and supported by volunteers. Please consider contributing to the project. There are many ways you can contribute even without knowledge in programming. Examples include:
 * Documentation
 * Proof reading
 * Tutorials
@@ -34,6 +36,8 @@ Please note: Some of the commands has single/double taps.
 * Toggle/Speak cycle: control+shift+c
 
 ### Inspector Shortcuts
+Note: The following shortcuts only work when you have Flogic Inspector enabled with shift+slash as well as inspector shown in the main window.
+
 * Speak/toggle mute: m
 * Speak/toggle solo: s
 * Speak current track: t
