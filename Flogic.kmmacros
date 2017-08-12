@@ -139,6 +139,134 @@ vo.output("Inspector off")
 		<key>Activate</key>
 		<string>Normal</string>
 		<key>CreationDate</key>
+		<real>499539568.21792102</real>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>DisplayKind</key>
+						<string>None</string>
+						<key>IncludeStdErr</key>
+						<true/>
+						<key>MacroActionType</key>
+						<string>ExecuteJavaScriptForAutomation</string>
+						<key>Path</key>
+						<string></string>
+						<key>Text</key>
+						<string>currentCommand = "osr"
+
+function single() {
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+vo = Application("VoiceOver")
+main = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
+tracks = main.groups[2].groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0]
+recordIndex = tracks.groups[0].checkboxes.description().indexOf("Record Enable")
+recordsp = ObjectSpecifier().checkboxes[recordIndex].value
+tracks = tracks.groups.whose({_match:[recordsp,1]}).description()
+msg = ""
+for (t in tracks) {
+msg += tracks[t].match(/“(.*?)”/)[1]+", "
+}
+if (msg=="") msg = "No tracks are record enabled."
+else msg = tracks.length+" record enabled: "+msg
+vo.output(msg)
+}
+function double() {
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+vo = Application("VoiceOver")
+main = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
+tracks = main.groups[2].groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0]
+recordIndex = tracks.groups[0].checkboxes.description().indexOf("Record Enable")
+recordsp = ObjectSpecifier().checkboxes[recordIndex].value
+tracks = tracks.groups.whose({_match:[recordsp,1]}).checkboxes[recordIndex]()
+for (t in tracks) {
+tracks[t].click()
+}
+vo.output("Record disabled all tracks")
+}
+
+kme = Application("Keyboard Maestro Engine")
+command = kme.getvariable("command").split(".")
+start = new Date().getTime()
+kme.setvariable("command", {to:currentCommand+"."+start})
+if (currentCommand == command[0] &amp; start-command[1]&lt;200) {
+kme.playSound(Path("/System/Library/Sounds/Tink.aiff"))
+double()
+} else  {
+runSingle = true
+while (new Date().getTime()-start&lt;200) {
+command = kme.getvariable("command").split(".")
+if (currentCommand == command[0] &amp; command[1]&gt;start) {
+runSingle=false
+break;
+}
+}
+if (runSingle) single()
+}
+
+</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>TrimResultsNew</key>
+						<true/>
+						<key>UseText</key>
+						<true/>
+					</dict>
+				</array>
+				<key>CreationDate</key>
+				<real>524188749.98473501</real>
+				<key>ModificationDate</key>
+				<real>524192077.75793898</real>
+				<key>Name</key>
+				<string>Beta: Speak Record Enabled Tracks/Record Disable All Tracks</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>15</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>2560</integer>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>9345CF6D-802D-4BCD-93FF-DD06F96097C6</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>Flogic</string>
+		<key>Targeting</key>
+		<dict>
+			<key>Targeting</key>
+			<string>Included</string>
+			<key>TargetingApps</key>
+			<array>
+				<dict>
+					<key>BundleIdentifier</key>
+					<string>com.apple.logic10</string>
+					<key>Name</key>
+					<string>Logic Pro X</string>
+					<key>NewFile</key>
+					<string>/Applications/Logic Pro X.app</string>
+				</dict>
+			</array>
+		</dict>
+		<key>ToggleMacroUID</key>
+		<string>5B52B143-96D5-42A8-BF6B-9D1E6FF1240F</string>
+		<key>UID</key>
+		<string>C52D9A0D-70FA-4012-B37E-ABE66F0A7841</string>
+	</dict>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>CreationDate</key>
 		<real>499546191.00478101</real>
 		<key>FocussedWindowConditionType</key>
 		<string>TitleMatches</string>
@@ -228,6 +356,134 @@ vo.output(value)
 		<string>9749998D-2FB3-4417-B4AB-A3A8D60962C2</string>
 		<key>UID</key>
 		<string>64EAC9F9-2720-4CE3-99DE-8A54F07FC4E9</string>
+	</dict>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>CreationDate</key>
+		<real>499539568.21792102</real>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>DisplayKind</key>
+						<string>None</string>
+						<key>IncludeStdErr</key>
+						<true/>
+						<key>MacroActionType</key>
+						<string>ExecuteJavaScriptForAutomation</string>
+						<key>Path</key>
+						<string></string>
+						<key>Text</key>
+						<string>currentCommand = "osi"
+
+function single() {
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+vo = Application("VoiceOver")
+main = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
+tracks = main.groups[2].groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0]
+index = tracks.groups[0].checkboxes.description().indexOf("Input Monitor")
+sp = ObjectSpecifier().checkboxes[index].value
+tracks = tracks.groups.whose({_match:[sp,1]}).description()
+msg = ""
+for (t in tracks) {
+msg += tracks[t].match(/“(.*?)”/)[1]+", "
+}
+if (msg=="") msg = "No tracks are input monitor enabled."
+else msg = tracks.length+" input monitor enabled: "+msg
+vo.output(msg)
+}
+function double() {
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+vo = Application("VoiceOver")
+main = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
+tracks = main.groups[2].groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0]
+index = tracks.groups[0].checkboxes.description().indexOf("Input Monitor")
+sp = ObjectSpecifier().checkboxes[index].value
+tracks = tracks.groups.whose({_match:[sp,1]}).description().checkboxes[index]()
+for (t in tracks) {
+tracks[t].click()
+}
+vo.output("Disabled input monitor for all tracks")
+}
+
+kme = Application("Keyboard Maestro Engine")
+command = kme.getvariable("command").split(".")
+start = new Date().getTime()
+kme.setvariable("command", {to:currentCommand+"."+start})
+if (currentCommand == command[0] &amp; start-command[1]&lt;200) {
+kme.playSound(Path("/System/Library/Sounds/Tink.aiff"))
+double()
+} else  {
+runSingle = true
+while (new Date().getTime()-start&lt;200) {
+command = kme.getvariable("command").split(".")
+if (currentCommand == command[0] &amp; command[1]&gt;start) {
+runSingle=false
+break;
+}
+}
+if (runSingle) single()
+}
+
+</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>TrimResultsNew</key>
+						<true/>
+						<key>UseText</key>
+						<true/>
+					</dict>
+				</array>
+				<key>CreationDate</key>
+				<real>524194280.16812903</real>
+				<key>ModificationDate</key>
+				<real>524194609.654679</real>
+				<key>Name</key>
+				<string>Speak Input Monitor Enabled Tracks/Disable Input Monitor All Tracks</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>34</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>2560</integer>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>F6962EA6-450D-49D9-9922-B9DCD72FC9CB</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>Flogic</string>
+		<key>Targeting</key>
+		<dict>
+			<key>Targeting</key>
+			<string>Included</string>
+			<key>TargetingApps</key>
+			<array>
+				<dict>
+					<key>BundleIdentifier</key>
+					<string>com.apple.logic10</string>
+					<key>Name</key>
+					<string>Logic Pro X</string>
+					<key>NewFile</key>
+					<string>/Applications/Logic Pro X.app</string>
+				</dict>
+			</array>
+		</dict>
+		<key>ToggleMacroUID</key>
+		<string>5B52B143-96D5-42A8-BF6B-9D1E6FF1240F</string>
+		<key>UID</key>
+		<string>C52D9A0D-70FA-4012-B37E-ABE66F0A7841</string>
 	</dict>
 	<dict>
 		<key>Activate</key>
