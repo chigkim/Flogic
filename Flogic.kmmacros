@@ -2160,8 +2160,8 @@ windows = lg.windows
 window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
 group = window.groups.whose({description:"Inspector"})[0]
 value = group.lists[0].lists[0].groups[0].checkboxes["Mute"].value()
-if (value == 1) msg = "On"
-else msg = "Off"
+if (value == 1) msg = "Mute On"
+else msg = "Mute Off"
 vo.output(msg)
 }
 
@@ -2175,8 +2175,8 @@ group = window.groups.whose({description:"Inspector"})[0]
 checkbox = group.lists[0].lists[0].groups[0].checkboxes["Mute"]
 checkbox.click()
 value = checkbox.value()
-if (value == 1) msg = "On"
-else msg = "Off"
+if (value == 1) msg = "Mute On"
+else msg = "Mute Off"
 vo.output(msg)
 }
 
@@ -2212,7 +2212,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>499549905.49280399</real>
 				<key>ModificationDate</key>
-				<real>499644474.72013801</real>
+				<real>524256957.81814802</real>
 				<key>Name</key>
 				<string>Speak/Toggle Mute</string>
 				<key>Triggers</key>
@@ -2289,8 +2289,8 @@ windows = lg.windows
 window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
 group = window.groups.whose({description:"Inspector"})[0]
 value = group.lists[0].lists[0].groups[0].checkboxes["Solo"].value()
-if (value == 1) msg = "On"
-else msg = "Off"
+if (value == 1) msg = "Solo On"
+else msg = "Solo Off"
 vo.output(msg)
 }
 
@@ -2304,8 +2304,8 @@ group = window.groups.whose({description:"Inspector"})[0]
 checkbox = group.lists[0].lists[0].groups[0].checkboxes["Solo"]
 checkbox.click()
 value = checkbox.value()
-if (value == 1) msg = "On"
-else msg = "Off"
+if (value == 1) msg = "Solo On"
+else msg = "Solo Off"
 vo.output(msg)
 }
 
@@ -2341,7 +2341,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>499551018.94458997</real>
 				<key>ModificationDate</key>
-				<real>499644515.69564301</real>
+				<real>524256987.69884801</real>
 				<key>Name</key>
 				<string>Speak/Toggle Solo</string>
 				<key>Triggers</key>
