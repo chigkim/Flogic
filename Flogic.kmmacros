@@ -2395,32 +2395,6 @@ if (runSingle) single()
 				<key>Actions</key>
 				<array>
 					<dict>
-						<key>Action</key>
-						<string>Disable</string>
-						<key>MacroActionType</key>
-						<string>SetMacroEnable</string>
-						<key>MacroUID</key>
-						<string>84AA8429-7402-4E23-96EF-B44745F52F64</string>
-					</dict>
-					<dict>
-						<key>KeyCode</key>
-						<integer>8</integer>
-						<key>MacroActionType</key>
-						<string>SimulateKeystroke</string>
-						<key>Modifiers</key>
-						<integer>0</integer>
-						<key>ReleaseAll</key>
-						<false/>
-					</dict>
-					<dict>
-						<key>Action</key>
-						<string>Enable</string>
-						<key>MacroActionType</key>
-						<string>SetMacroEnable</string>
-						<key>MacroUID</key>
-						<string>84AA8429-7402-4E23-96EF-B44745F52F64</string>
-					</dict>
-					<dict>
 						<key>DisplayKind</key>
 						<string>None</string>
 						<key>IncludeStdErr</key>
@@ -2435,9 +2409,12 @@ sys = Application("System Events")
 lg = sys.applicationProcesses.byName("Logic Pro X")
 windows = lg.windows
 window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
-value = window.groups.whose({description:"Control Bar"}).checkboxes.byName("Cycle").value()
-if (value == 1) vo.output("Cycle on")
-else vo.output("Cycle off")
+obj = window.groups.whose({description:"Control Bar"}).checkboxes.byName("Cycle")
+obj.click()
+value = obj.value()
+if (value == 3) vo.output("Cycle off")
+else vo.output("Cycle on")
+
 </string>
 						<key>TimeOutAbortsMacro</key>
 						<true/>
@@ -2452,7 +2429,7 @@ else vo.output("Cycle off")
 				<key>CreationDate</key>
 				<real>504407929.39738297</real>
 				<key>ModificationDate</key>
-				<real>524117857.42701</real>
+				<real>524233657.98326898</real>
 				<key>Name</key>
 				<string>Toggle Cycle</string>
 				<key>Triggers</key>
