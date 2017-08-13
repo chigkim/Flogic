@@ -158,13 +158,13 @@ vo.output("Inspector off")
 						<string>currentCommand = "osr"
 
 function single() {
-logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 vo = Application("VoiceOver")
-main = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-tracks = main.groups[2].groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0]
-recordIndex = tracks.groups[0].checkboxes.description().indexOf("Record Enable")
-recordsp = ObjectSpecifier().checkboxes[recordIndex].value
-tracks = tracks.groups.whose({_match:[recordsp,1]}).description()
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
+tracks = window.groups[2].groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0]
+index = tracks.groups[0].checkboxes.description().indexOf("Record Enable")
+sp = ObjectSpecifier().checkboxes[index].value
+tracks = tracks.groups.whose({_match:[sp,1]}).description()
 msg = ""
 for (t in tracks) {
 msg += tracks[t].match(/“(.*?)”/)[1]+", "
@@ -173,14 +173,15 @@ if (msg=="") msg = "No tracks are record enabled."
 else msg = tracks.length+" record enabled: "+msg
 vo.output(msg)
 }
+
 function double() {
-logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 vo = Application("VoiceOver")
-main = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-tracks = main.groups[2].groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0]
-recordIndex = tracks.groups[0].checkboxes.description().indexOf("Record Enable")
-recordsp = ObjectSpecifier().checkboxes[recordIndex].value
-tracks = tracks.groups.whose({_match:[recordsp,1]}).checkboxes[recordIndex]()
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
+tracks = window.groups[2].groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0]
+index = tracks.groups[0].checkboxes.description().indexOf("Record Enable")
+sp = ObjectSpecifier().checkboxes[index].value
+tracks = tracks.groups.whose({_match:[sp,1]}).checkboxes[index]()
 for (t in tracks) {
 tracks[t].click()
 }
@@ -220,7 +221,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>524188749.98473501</real>
 				<key>ModificationDate</key>
-				<real>524192077.75793898</real>
+				<real>524300456.925264</real>
 				<key>Name</key>
 				<string>Beta: Speak Record Enabled Tracks/Record Disable All Tracks</string>
 				<key>Triggers</key>
@@ -288,15 +289,13 @@ if (runSingle) single()
 						<string></string>
 						<key>Text</key>
 						<string>vo = Application("VoiceOver")
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
 group = window.groups.whose({description:"Inspector"})[0]
-specifier = ObjectSpecifier().staticTexts[0].name
-value = group.lists[0].groups.whose({_match:[specifier,{_equals:"Track:"}]}).textFields[0].value()
+sp = ObjectSpecifier().staticTexts[0].name
+value = group.lists[0].groups.whose({_match:[sp,{_equals:"Track:"}]}).textFields[0].value()
 if (value == "") {
-value = group.lists[0].groups.whose({_match:[specifier,{_equals:"Track:"}]}).staticTexts[1].name()
+value = group.lists[0].groups.whose({_match:[sp,{_equals:"Track:"}]}).staticTexts[1].name()
 }
 msg = ""+value
 vo.output(value)
@@ -314,7 +313,7 @@ vo.output(value)
 				<key>CreationDate</key>
 				<real>499548605.26653099</real>
 				<key>ModificationDate</key>
-				<real>524098344.494133</real>
+				<real>524301277.97932798</real>
 				<key>Name</key>
 				<string>Speak Current Track</string>
 				<key>Triggers</key>
@@ -380,10 +379,10 @@ vo.output(value)
 						<string>currentCommand = "osi"
 
 function single() {
-logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 vo = Application("VoiceOver")
-main = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-tracks = main.groups[2].groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0]
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
+tracks = window.groups[2].groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0]
 index = tracks.groups[0].checkboxes.description().indexOf("Input Monitor")
 sp = ObjectSpecifier().checkboxes[index].value
 tracks = tracks.groups.whose({_match:[sp,1]}).description()
@@ -395,14 +394,15 @@ if (msg=="") msg = "No tracks are input monitor enabled."
 else msg = tracks.length+" input monitor enabled: "+msg
 vo.output(msg)
 }
+
 function double() {
-logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 vo = Application("VoiceOver")
-main = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-tracks = main.groups[2].groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0]
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
+tracks = window.groups[2].groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0]
 index = tracks.groups[0].checkboxes.description().indexOf("Input Monitor")
 sp = ObjectSpecifier().checkboxes[index].value
-tracks = tracks.groups.whose({_match:[sp,1]}).description().checkboxes[index]()
+tracks = tracks.groups.whose({_match:[sp,1]}).checkboxes[index]()
 for (t in tracks) {
 tracks[t].click()
 }
@@ -442,7 +442,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>524194280.16812903</real>
 				<key>ModificationDate</key>
-				<real>524194609.654679</real>
+				<real>524300492.93814802</real>
 				<key>Name</key>
 				<string>Speak Input Monitor Enabled Tracks/Disable Input Monitor All Tracks</string>
 				<key>Triggers</key>
@@ -506,10 +506,8 @@ if (runSingle) single()
 						<string></string>
 						<key>Text</key>
 						<string>vo = Application("VoiceOver")
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
 sliders = window.groups[0].groups[0].groups[2].sliders()
 msg = ""
 for (s in sliders) {
@@ -531,7 +529,7 @@ vo.output(msg)
 				<key>CreationDate</key>
 				<real>499542082.32662898</real>
 				<key>ModificationDate</key>
-				<real>506663597.93275899</real>
+				<real>524300541.59568602</real>
 				<key>Name</key>
 				<string>Speak Left Locator</string>
 				<key>Triggers</key>
@@ -597,13 +595,13 @@ vo.output(msg)
 						<string>currentCommand = "osm"
 
 function single() {
-logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 vo = Application("VoiceOver")
-main = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-tracks = main.groups[2].groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0]
-muteIndex = tracks.groups[0].checkboxes.description().indexOf("Mute")
-mutesp = ObjectSpecifier().checkboxes[muteIndex].value
-tracks = tracks.groups.whose({_match:[mutesp,1]}).description()
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
+tracks = window.groups[2].groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0]
+index = tracks.groups[0].checkboxes.description().indexOf("Mute")
+sp = ObjectSpecifier().checkboxes[index].value
+tracks = tracks.groups.whose({_match:[sp,1]}).description()
 msg = ""
 for (t in tracks) {
 msg += tracks[t].match(/“(.*?)”/)[1]+", "
@@ -612,14 +610,15 @@ if (msg=="") msg = "No tracks are muted."
 else msg = tracks.length+" muted: "+msg
 vo.output(msg)
 }
+
 function double() {
-logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 vo = Application("VoiceOver")
-main = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-tracks = main.groups[2].groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0]
-muteIndex = tracks.groups[0].checkboxes.description().indexOf("Mute")
-mutesp = ObjectSpecifier().checkboxes[muteIndex].value
-tracks = tracks.groups.whose({_match:[mutesp,1]}).checkboxes[muteIndex]()
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
+tracks = window.groups[2].groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0]
+index = tracks.groups[0].checkboxes.description().indexOf("Mute")
+sp = ObjectSpecifier().checkboxes[index].value
+tracks = tracks.groups.whose({_match:[sp,1]}).checkboxes[index]()
 for (t in tracks) {
 tracks[t].click()
 }
@@ -659,7 +658,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>489906430.29756999</real>
 				<key>ModificationDate</key>
-				<real>524161105.09331799</real>
+				<real>524300422.746984</real>
 				<key>Name</key>
 				<string>Speak Muted Tracks/Unmute All Tracks</string>
 				<key>Triggers</key>
@@ -723,10 +722,8 @@ if (runSingle) single()
 						<string></string>
 						<key>Text</key>
 						<string>vo = Application("VoiceOver")
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
 description = window.groups[0].groups[0].groups[0].description()
 sliders = window.groups[0].groups[0].groups[0].sliders()
 msg = ""
@@ -749,7 +746,7 @@ vo.output(msg)
 				<key>CreationDate</key>
 				<real>499539582.64421701</real>
 				<key>ModificationDate</key>
-				<real>524098614.26291901</real>
+				<real>524300578.91432101</real>
 				<key>Name</key>
 				<string>Speak Playhead Position</string>
 				<key>Triggers</key>
@@ -813,10 +810,8 @@ vo.output(msg)
 						<string></string>
 						<key>Text</key>
 						<string>vo = Application("VoiceOver")
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
 description = window.groups[0].groups[0].groups[1].description()
 sliders = window.groups[0].groups[0].groups[1].sliders()
 msg = ""
@@ -839,7 +834,7 @@ vo.output(msg)
 				<key>CreationDate</key>
 				<real>499545345.661502</real>
 				<key>ModificationDate</key>
-				<real>524098635.08687901</real>
+				<real>524300618.22163498</real>
 				<key>Name</key>
 				<string>Speak Playhead Position Alternate</string>
 				<key>Triggers</key>
@@ -903,10 +898,8 @@ vo.output(msg)
 						<string></string>
 						<key>Text</key>
 						<string>vo = Application("VoiceOver")
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
 sliders = window.groups[0].groups[0].groups[3].sliders()
 msg = ""
 for (s in sliders) {
@@ -928,7 +921,7 @@ vo.output(msg)
 				<key>CreationDate</key>
 				<real>499545107.58686203</real>
 				<key>ModificationDate</key>
-				<real>499545133.67132199</real>
+				<real>524300902.45265102</real>
 				<key>Name</key>
 				<string>Speak Right Locator</string>
 				<key>Triggers</key>
@@ -996,15 +989,13 @@ vo.output(msg)
 						<string></string>
 						<key>Text</key>
 						<string>vo = Application("VoiceOver")
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
 group = window.groups.whose({description:"Inspector"})[0]
-specifier = ObjectSpecifier().staticTexts[0].name
-value = group.lists[0].groups.whose({_match:[specifier,{_equals:"Region:"}]}).textFields[0].value()
+sp = ObjectSpecifier().staticTexts[0].name
+value = group.lists[0].groups.whose({_match:[sp,{_equals:"Region:"}]}).textFields[0].value()
 if (value == "") {
-value = group.lists[0].groups.whose({_match:[specifier,{_equals:"Region:"}]}).staticTexts[1].name()
+value = group.lists[0].groups.whose({_match:[sp,{_equals:"Region:"}]}).staticTexts[1].name()
 }
 msg = ""+value
 vo.output(value)
@@ -1022,7 +1013,7 @@ vo.output(value)
 				<key>CreationDate</key>
 				<real>499547096.50015402</real>
 				<key>ModificationDate</key>
-				<real>524098208.851062</real>
+				<real>524301335.36696702</real>
 				<key>Name</key>
 				<string>Speak Selected Region</string>
 				<key>Triggers</key>
@@ -1088,13 +1079,13 @@ vo.output(value)
 						<string>currentCommand = "oss"
 
 function single() {
-logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 vo = Application("VoiceOver")
-main = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-tracks = main.groups[2].groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0]
-soloIndex = tracks.groups[0].checkboxes.description().indexOf("Solo")
-solosp = ObjectSpecifier().checkboxes[soloIndex].value
-tracks = tracks.groups.whose({_match:[solosp,1]}).description()
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
+tracks = window.groups[2].groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0]
+index = tracks.groups[0].checkboxes.description().indexOf("Solo")
+sp = ObjectSpecifier().checkboxes[index].value
+tracks = tracks.groups.whose({_match:[sp,1]}).description()
 msg = ""
 for (t in tracks) {
 msg += tracks[t].match(/“(.*?)”/)[1]+", "
@@ -1103,15 +1094,15 @@ if (msg=="") msg = "No tracks are soloed."
 else msg = tracks.length+" soloed: "+msg
 vo.output(msg)
 }
-function double() {
-logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
-vo = Application("VoiceOver")
-main = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-tracks = main.groups[2].groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0]
-soloIndex = tracks.groups[0].checkboxes.description().indexOf("Solo")
-solosp = ObjectSpecifier().checkboxes[soloIndex].value
 
-tracks = tracks.groups.whose({_match:[solosp,1]}).checkboxes[soloIndex]()
+function double() {
+vo = Application("VoiceOver")
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
+tracks = window.groups[2].groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0]
+index = tracks.groups[0].checkboxes.description().indexOf("Solo")
+sp = ObjectSpecifier().checkboxes[index].value
+tracks = tracks.groups.whose({_match:[sp,1]}).checkboxes[index]()
 for (t in tracks) {
 tracks[t].click()
 }
@@ -1151,7 +1142,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>524089506.15395403</real>
 				<key>ModificationDate</key>
-				<real>524161079.88200903</real>
+				<real>524301015.72112298</real>
 				<key>Name</key>
 				<string>Speak Soloed Tracks/Unsolo All Tracks</string>
 				<key>Triggers</key>
@@ -1219,8 +1210,8 @@ if (runSingle) single()
 						<string></string>
 						<key>Text</key>
 						<string>vo = Application("VoiceOver")
-lg = Application("System Events").applicationProcesses.byName("Logic Pro X")
-window = lg.windows.whose({name:{_endsWith:" - Tracks"}})[0]
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
 group = window.groups.whose({description:"Inspector"})[0]
 value = group.lists[0].lists[0].groups[0].sliders[1].attributes["AXLabelUIElements"].value()[0].value()
 msg = ""+value
@@ -1238,7 +1229,7 @@ vo.output(msg)</string>
 				<key>CreationDate</key>
 				<real>499553352.65371102</real>
 				<key>ModificationDate</key>
-				<real>524092195.53912801</real>
+				<real>524301398.97817701</real>
 				<key>Name</key>
 				<string>Speak Volume</string>
 				<key>Triggers</key>
@@ -1309,10 +1300,8 @@ vo.output(msg)</string>
 
 function single() {
 vo = Application("VoiceOver")
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
 group = window.groups.whose({description:"Inspector"})[0]
 value = group.lists.at(0).lists.at(0).groups.at(0).buttons.whose({name:{_endsWith:"clip level"}})[0].name()
 msg = ""+value.replace(", clip level","")
@@ -1321,11 +1310,8 @@ vo.output(msg)
 
 function double() {
 vo = Application("VoiceOver")
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
-
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
 group = window.groups.whose({description:"Inspector"})[0]
 group.lists.at(0).lists.at(0).groups.at(0).buttons.whose({name:{_endsWith:"clip level"}})[0].click()
 value = group.lists.at(0).lists.at(0).groups.at(0).buttons.whose({name:{_endsWith:"clip level"}})[0].name()
@@ -1365,7 +1351,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>499551222.87871099</real>
 				<key>ModificationDate</key>
-				<real>499665666.30684698</real>
+				<real>524301457.25441903</real>
 				<key>Name</key>
 				<string>Speak/Reset Clip Level</string>
 				<key>Triggers</key>
@@ -1432,20 +1418,16 @@ if (runSingle) single()
 
 function single() {
 vo = Application("VoiceOver")
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
-pop = window.groups.whose({description:{_contains:"Control Bar"}})[0].groups.whose({description:{_contains:"Control Bar"}})[0].popUpButtons.whose({help:{_contains:"Display Mode pop-up menu"}})[0]
-msg = ""+pop.value()
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
+obj = window.groups.whose({description:{_contains:"Control Bar"}})[0].groups.whose({description:{_contains:"Control Bar"}})[0].popUpButtons.whose({help:{_contains:"Display Mode pop-up menu"}})[0]
+msg = ""+obj.value()
 vo.output(msg)
 }
 
 function double() {
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
 window.groups.whose({description:{_contains:"Control Bar"}})[0].groups.whose({description:{_contains:"Control Bar"}})[0].popUpButtons.whose({help:{_contains:"Display Mode pop-up menu"}})[0].click()
 }
 
@@ -1481,7 +1463,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>524117605.19872898</real>
 				<key>ModificationDate</key>
-				<real>524117705.05586898</real>
+				<real>524301106.31013501</real>
 				<key>Name</key>
 				<string>Speak/Select Display Mode</string>
 				<key>Triggers</key>
@@ -1548,20 +1530,16 @@ if (runSingle) single()
 
 function single() {
 vo = Application("VoiceOver")
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
-pop = window.groups[0].groups[0].popUpButtons[2]()
-msg = ""+pop.value()+", Division"
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
+obj = window.groups[0].groups[0].popUpButtons[2]()
+msg = ""+obj.value()+", Division"
 vo.output(msg)
 }
 
 function double() {
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
 window.groups[0].groups[0].popUpButtons[2].click()
 }
 
@@ -1597,7 +1575,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>499545504.50963801</real>
 				<key>ModificationDate</key>
-				<real>499550928.29787999</real>
+				<real>524301168.95211101</real>
 				<key>Name</key>
 				<string>Speak/Select Division Value</string>
 				<key>Triggers</key>
@@ -1668,10 +1646,8 @@ if (runSingle) single()
 
 function single() {
 vo = Application("VoiceOver")
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
 group = window.groups.whose({description:"Inspector"})[0]
 value = group.lists[0].lists[0].groups[0].popUpButtons[2].name()
 vo.output(""+value)
@@ -1679,10 +1655,8 @@ vo.output(""+value)
 
 function double() {
 vo = Application("VoiceOver")
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
 group = window.groups.whose({description:"Inspector"})[0]
 group.lists[0].lists[0].groups[0].popUpButtons[2].click()
 }
@@ -1719,7 +1693,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>499645317.75343698</real>
 				<key>ModificationDate</key>
-				<real>499645361.96192801</real>
+				<real>524301482.96218002</real>
 				<key>Name</key>
 				<string>Speak/Select Group</string>
 				<key>Triggers</key>
@@ -1790,20 +1764,16 @@ if (runSingle) single()
 
 function single() {
 vo = Application("VoiceOver")
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
 group = window.groups.whose({description:"Inspector"})[0]
 value = group.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"}).popUpButtons.whose({name:{_contains:"input"}}).name()
 vo.output(""+value)
 }
 
 function double() {
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
 group = window.groups.whose({description:"Inspector"})[0]
 group.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"})[0].popUpButtons.whose({name:{_contains:"input"}})[0].click()
 }
@@ -1840,7 +1810,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>499644803.65713799</real>
 				<key>ModificationDate</key>
-				<real>505997299.94304597</real>
+				<real>524301526.366184</real>
 				<key>Name</key>
 				<string>Speak/Select Input</string>
 				<key>Triggers</key>
@@ -1911,20 +1881,16 @@ if (runSingle) single()
 
 function single() {
 vo = Application("VoiceOver")
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
 group = window.groups.whose({description:"Inspector"})[0]
 value = group.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"}).popUpButtons.whose({name:{_contains:"output"}}).name()
 vo.output(""+value)
 }
 
 function double() {
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
 group = window.groups.whose({description:"Inspector"})[0]
 group.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"})[0].popUpButtons.whose({name:{_contains:"output"}})[0].click()
 }
@@ -1961,7 +1927,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>499644545.45245498</real>
 				<key>ModificationDate</key>
-				<real>505996971.61847299</real>
+				<real>524301553.35579598</real>
 				<key>Name</key>
 				<string>Speak/Select Output</string>
 				<key>Triggers</key>
@@ -2032,21 +1998,16 @@ if (runSingle) single()
 
 function single() {
 vo = Application("VoiceOver")
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
 group = window.groups.whose({description:"Inspector"})[0]
 value = group.lists[0].lists[0].groups[0].popUpButtons[0].name()
 vo.output(""+value)
 }
 
 function double() {
-vo = Application("VoiceOver")
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
 group = window.groups.whose({description:"Inspector"})[0]
 group.lists[0].lists[0].groups[0].popUpButtons[0].click()
 }
@@ -2083,7 +2044,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>499645164.66727</real>
 				<key>ModificationDate</key>
-				<real>499645197.06349498</real>
+				<real>524301585.35188401</real>
 				<key>Name</key>
 				<string>Speak/Select Preset</string>
 				<key>Triggers</key>
@@ -2154,10 +2115,8 @@ if (runSingle) single()
 
 function single() {
 vo = Application("VoiceOver")
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
 group = window.groups.whose({description:"Inspector"})[0]
 value = group.lists[0].lists[0].groups[0].checkboxes["Mute"].value()
 verbosity = kme.getvariable("fgVerbosity")
@@ -2170,10 +2129,8 @@ vo.output(msg)
 
 function double() {
 vo = Application("VoiceOver")
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
 group = window.groups.whose({description:"Inspector"})[0]
 checkbox = group.lists[0].lists[0].groups[0].checkboxes["Mute"]
 checkbox.click()
@@ -2218,7 +2175,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>499549905.49280399</real>
 				<key>ModificationDate</key>
-				<real>524258409.89181602</real>
+				<real>524301618.20260698</real>
 				<key>Name</key>
 				<string>Speak/Toggle Mute</string>
 				<key>Triggers</key>
@@ -2289,10 +2246,8 @@ if (runSingle) single()
 
 function single() {
 vo = Application("VoiceOver")
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
 group = window.groups.whose({description:"Inspector"})[0]
 value = group.lists[0].lists[0].groups[0].checkboxes["Solo"].value()
 verbosity = kme.getvariable("fgVerbosity")
@@ -2305,10 +2260,8 @@ vo.output(msg)
 
 function double() {
 vo = Application("VoiceOver")
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
 group = window.groups.whose({description:"Inspector"})[0]
 checkbox = group.lists[0].lists[0].groups[0].checkboxes["Solo"]
 checkbox.click()
@@ -2353,7 +2306,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>499551018.94458997</real>
 				<key>ModificationDate</key>
-				<real>524258506.11643702</real>
+				<real>524301643.44883698</real>
 				<key>Name</key>
 				<string>Speak/Toggle Solo</string>
 				<key>Triggers</key>
@@ -2417,10 +2370,8 @@ if (runSingle) single()
 						<string></string>
 						<key>Text</key>
 						<string>vo = Application("VoiceOver")
-sys = Application("System Events")
-lg = sys.applicationProcesses.byName("Logic Pro X")
-windows = lg.windows
-window = windows.whose({name:{_endsWith:" - Tracks"}})[0]
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
 obj = window.groups.whose({description:"Control Bar"}).checkboxes.byName("Cycle")
 obj.click()
 value = obj.value()
@@ -2441,7 +2392,7 @@ else vo.output("Cycle on")
 				<key>CreationDate</key>
 				<real>504407929.39738297</real>
 				<key>ModificationDate</key>
-				<real>524233657.98326898</real>
+				<real>524301190.53049201</real>
 				<key>Name</key>
 				<string>Toggle Cycle</string>
 				<key>Triggers</key>
