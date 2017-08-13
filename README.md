@@ -31,13 +31,13 @@ Flogic is exclusively developed and supported by volunteers. Please consider con
 Please note: Some of the commands has single/double taps (presses).
 
 ### Main Shortcuts
-* Toggle Flogic inspector: shift+slash. *please note* that some of Logic's keyboard shortcuts may not be available when Flogic inspector is turned on. To re-enable Logic's keyboard shortcuts, toggle Flogic Inspector off.
+* Toggle Flogic inspector: shift+slash. *please note* that some of Logic's keyboard shortcuts may not be available when Flogic inspector is turned on. To re-enable Logic's keyboard shortcuts, toggle Flogic Inspector off
 * Speak playhead position: command+f1
 * Speak left locator: command+f2
 * Speak right locator: command+f3
 * Speak alternate playhead position: command+f4
-* Speak/select division value: command+f6
-* Speak/select display mode: command+f12
+* Speak project key value: command+f6, press twice quickly to select from the menu
+* Speak Display MODE: command+f12, press twice quickly to select from the menu
 * Toggle/Speak cycle: control+shift+c
 * Speak muted tracks/unmute all tracks: option+shift+m
 * Speak soloed tracks/unsolo all tracks: option+shift+s
@@ -47,13 +47,13 @@ Please note: Some of the commands has single/double taps (presses).
 ### Inspector Shortcuts
 Note: The following shortcuts only work when you have Flogic Inspector enabled with shift+slash as well as inspector shown in the main window.
 
-* Speak/toggle mute: m, press twice quickly to mute or unmute.
-* Speak/toggle solo: s, press twice quickly to solo or unsolo.
+* Speak/toggle mute: m, press twice quickly to mute or unmute
+* Speak/toggle solo: s, press twice quickly to solo or unsolo
 * Speak current track: t
 * Speak selected region: r
 * Speak/reset clip level: l
-* Speak/select input: i
-* Speak/select output: o
-* Speak/select preset: p
-* Speak/select group: g
+* Speak input: i, press twice to select from the list of inputs
+* Speak output: o, press twice quickly to select from the list of  outputs
+* Speak preset: p, press twice quickly to open the list of presets
+* Speak group: g, press twice quickly to open the list of groups
 * Speak volume: v (not working)
