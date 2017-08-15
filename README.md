@@ -43,6 +43,8 @@ Please note: Some of the commands has single/double taps (presses).
 * Speak soloed tracks/unsolo all tracks: option+shift+s
 * Speak Input Monitor Enabled Tracks/Disable Input Monitor All Tracks: option+shift+i
 * Speak Record Enabled Tracks/Record Disable All Tracks (not working properly): option+shift+r
+* Increase/decrease pan: command+left/right
+* Increase/decrease volume (not working properly): command+up/down
 
 ### Inspector Shortcuts
 Note: The following shortcuts only work when you have Flogic Inspector enabled with shift+slash as well as inspector shown in the main window.
