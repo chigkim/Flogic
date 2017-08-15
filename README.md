@@ -59,3 +59,4 @@ Note: The following shortcuts only work when you have Flogic Inspector enabled w
 * Speak/select preset: p
 * Speak/select group: g
 * Speak volume: v (not working)
+* Speak pan: p
