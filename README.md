@@ -16,11 +16,9 @@ Flogic is exclusively developed and supported by volunteers. Please consider con
 
 ## Installation
 * Download and install [Keyboard Maestro](http://www.keyboardmaestro.com) and make sure the application is working correctly before proceeding to the next step.
-* [Download the latest version of the Flogic Keyboard Maestro macro](https://github.com/chigkim/Flogic/blob/master/Flogic.kmmacros) and save it to your hard drive where you can easily find it.
-* Import the macros into Keyboard Maestro with these steps:
-  * go to the location where you saved the file from the step above.
-  * navigate to the file with arrow keys and press CMD+O to open it.
-  * make sure two macro groups have been created (Flogic and Flogic Inspector with a few macros in them. You can now close the Keyboard Maestro window if you wish.
+* [Download the latest version of the Flogic](https://codeload.github.com/chigkim/Flogic/zip/master) and save it to your hard drive where you can easily find it.
+* Run the installer.
+* make sure two macro groups have been created (Flogic and Flogic Inspector with a few macros in them. You can now close the Keyboard Maestro window if you wish.
 
 ## Logic Configuration
 * Make sure main window of Logic Pro X is open.
