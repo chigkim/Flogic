@@ -34,7 +34,7 @@ More information about purchasing a license can be found [here.](https://wiki.ke
 * [Download the latest version of the Flogic](https://codeload.github.com/chigkim/Flogic/zip/master) and save it to your hard drive where you can easily find it.
 * Run the installer.
 * make sure two macro groups have been created (Flogic and Flogic Inspector with a few macros in them.
-*  * Open VoiceOver Utility and check "Allow VoiceOver to be controlled with AppleScript" in the General category.
+* Open VoiceOver Utility and check "Allow VoiceOver to be controlled with AppleScript" in the General category.
 
 ### Logic Configuration
 * Make sure main window of Logic Pro X is open.
@@ -83,8 +83,8 @@ The shortcuts outlined above are the default assignments for Flogic. They may be
 * Go to the view menu, and select "start editing macros."
 * Find the Macro Groups scroll area and interact with it. Inside, find and select the appropriate macro group by pressing VO space on it.
 * Stop interacting with this area and move to the right to the macros scroll area.
-  * Interact, and find the macro with the desired shortcut  to change. Press VO space to select it, and press tab. This should move the VoiceOver Cursor  inside the edit screen of the macro.
-  * * Press VO right arrow to the  button labeled with the current shortcut for the script.
+* Interact, and find the macro with the desired shortcut  to change. Press VO space to select it, and press tab. This should move the VoiceOver Cursor  inside the edit screen of the macro.
+* Press VO right arrow to the  button labeled with the current shortcut for the script.
 * Simply type the new desired shortcut and then stop interacting with the edit area. Be careful not to press command tab here, as this will assign it self as a new shortcut.
 
 ### Reporting Issues
