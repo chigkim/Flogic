@@ -2839,7 +2839,7 @@ window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
 obj = window.groups.whose({description:"Control Bar"}).checkboxes.byName("Cycle")
 obj.click()
 value = obj.value()
-if (value == 3) vo.output("Cycle off")
+if (value == 0) vo.output("Cycle off")
 else vo.output("Cycle on")
 
 </string>
@@ -2856,7 +2856,7 @@ else vo.output("Cycle on")
 				<key>CreationDate</key>
 				<real>504407929.39738297</real>
 				<key>ModificationDate</key>
-				<real>524301190.53049201</real>
+				<real>524600716.67926902</real>
 				<key>Name</key>
 				<string>Toggle Cycle</string>
 				<key>Triggers</key>
