@@ -360,7 +360,11 @@ vo.output(msg)
 		<key>Activate</key>
 		<string>Normal</string>
 		<key>CreationDate</key>
-		<real>499539568.21792102</real>
+		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> - Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -385,7 +389,7 @@ obj = group.lists[0].lists[0].groups[0].sliders.whose({_not:[{description:"Fader
 obj.decrement()
 value = obj.value()
 verbosity = kme.getvariable("fgVerbosity")
-if (verbosity == "long") msg = "Volume "
+if (verbosity == "long") msg = "Pan: "
 else msg = ""
 msg += value
 vo.output(msg)
@@ -403,7 +407,7 @@ vo.output(msg)
 				<key>CreationDate</key>
 				<real>524317094.12898701</real>
 				<key>ModificationDate</key>
-				<real>524317281.89770401</real>
+				<real>524678432.19230598</real>
 				<key>Name</key>
 				<string>Decrease Pan</string>
 				<key>Triggers</key>
@@ -424,7 +428,7 @@ vo.output(msg)
 			</dict>
 		</array>
 		<key>Name</key>
-		<string>Flogic</string>
+		<string>Flogic Inspector</string>
 		<key>Targeting</key>
 		<dict>
 			<key>Targeting</key>
@@ -442,15 +446,19 @@ vo.output(msg)
 			</array>
 		</dict>
 		<key>ToggleMacroUID</key>
-		<string>5B52B143-96D5-42A8-BF6B-9D1E6FF1240F</string>
+		<string>9749998D-2FB3-4417-B4AB-A3A8D60962C2</string>
 		<key>UID</key>
-		<string>C52D9A0D-70FA-4012-B37E-ABE66F0A7841</string>
+		<string>64EAC9F9-2720-4CE3-99DE-8A54F07FC4E9</string>
 	</dict>
 	<dict>
 		<key>Activate</key>
 		<string>Normal</string>
 		<key>CreationDate</key>
-		<real>499539568.21792102</real>
+		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> - Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -514,7 +522,7 @@ vo.output(msg)
 			</dict>
 		</array>
 		<key>Name</key>
-		<string>Flogic</string>
+		<string>Flogic Inspector</string>
 		<key>Targeting</key>
 		<dict>
 			<key>Targeting</key>
@@ -532,15 +540,19 @@ vo.output(msg)
 			</array>
 		</dict>
 		<key>ToggleMacroUID</key>
-		<string>5B52B143-96D5-42A8-BF6B-9D1E6FF1240F</string>
+		<string>9749998D-2FB3-4417-B4AB-A3A8D60962C2</string>
 		<key>UID</key>
-		<string>C52D9A0D-70FA-4012-B37E-ABE66F0A7841</string>
+		<string>64EAC9F9-2720-4CE3-99DE-8A54F07FC4E9</string>
 	</dict>
 	<dict>
 		<key>Activate</key>
 		<string>Normal</string>
 		<key>CreationDate</key>
-		<real>499539568.21792102</real>
+		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> - Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -565,7 +577,7 @@ obj = group.lists[0].lists[0].groups[0].sliders.whose({_not:[{description:"Fader
 obj.increment()
 value = obj.value()
 verbosity = kme.getvariable("fgVerbosity")
-if (verbosity == "long") msg = "Volume "
+if (verbosity == "long") msg = "Pan: "
 else msg = ""
 msg += value
 vo.output(msg)
@@ -583,7 +595,7 @@ vo.output(msg)
 				<key>CreationDate</key>
 				<real>524317302.40687901</real>
 				<key>ModificationDate</key>
-				<real>524317326.06559801</real>
+				<real>524678453.78141302</real>
 				<key>Name</key>
 				<string>Increase Pan</string>
 				<key>Triggers</key>
@@ -604,7 +616,7 @@ vo.output(msg)
 			</dict>
 		</array>
 		<key>Name</key>
-		<string>Flogic</string>
+		<string>Flogic Inspector</string>
 		<key>Targeting</key>
 		<dict>
 			<key>Targeting</key>
@@ -622,15 +634,19 @@ vo.output(msg)
 			</array>
 		</dict>
 		<key>ToggleMacroUID</key>
-		<string>5B52B143-96D5-42A8-BF6B-9D1E6FF1240F</string>
+		<string>9749998D-2FB3-4417-B4AB-A3A8D60962C2</string>
 		<key>UID</key>
-		<string>C52D9A0D-70FA-4012-B37E-ABE66F0A7841</string>
+		<string>64EAC9F9-2720-4CE3-99DE-8A54F07FC4E9</string>
 	</dict>
 	<dict>
 		<key>Activate</key>
 		<string>Normal</string>
 		<key>CreationDate</key>
-		<real>499539568.21792102</real>
+		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> - Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -694,7 +710,7 @@ vo.output(msg)
 			</dict>
 		</array>
 		<key>Name</key>
-		<string>Flogic</string>
+		<string>Flogic Inspector</string>
 		<key>Targeting</key>
 		<dict>
 			<key>Targeting</key>
@@ -712,9 +728,9 @@ vo.output(msg)
 			</array>
 		</dict>
 		<key>ToggleMacroUID</key>
-		<string>5B52B143-96D5-42A8-BF6B-9D1E6FF1240F</string>
+		<string>9749998D-2FB3-4417-B4AB-A3A8D60962C2</string>
 		<key>UID</key>
-		<string>C52D9A0D-70FA-4012-B37E-ABE66F0A7841</string>
+		<string>64EAC9F9-2720-4CE3-99DE-8A54F07FC4E9</string>
 	</dict>
 	<dict>
 		<key>Activate</key>
