@@ -37,6 +37,7 @@ More information about purchasing a license can be found [here.](https://wiki.ke
 * Open VoiceOver Utility and check "Allow VoiceOver to be controlled with AppleScript" in the General category.
 
 ### Logic Configuration
+* Make sure your Logic User Interface is in English (U.S.)
 * Make sure main window of Logic Pro X is open.
 * Make sure toolbar is shown and select custom from display mode
 * Make sure inspector and tracks groups are shown in the main window
