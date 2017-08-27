@@ -32,9 +32,9 @@ More information about purchasing a license can be found [here.](https://wiki.ke
 
 ### Installing Flogic
 * [Download the latest version of the Flogic](https://codeload.github.com/chigkim/Flogic/zip/master) and save it to your hard drive where you can easily find it.
+* Open VoiceOver Utility and check "Allow VoiceOver to be controlled with AppleScript" in the General category.
 * Run the installer.
 * make sure two macro groups have been created (Flogic and Flogic Inspector with a few macros in them.
-* Open VoiceOver Utility and check "Allow VoiceOver to be controlled with AppleScript" in the General category.
 
 ### Logic Configuration
 * Make sure your Logic User Interface is in English (U.S.)
