@@ -19,8 +19,12 @@
 						<true/>
 						<key>MacroActionType</key>
 						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
 						<key>Path</key>
 						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
 						<key>Text</key>
 						<string>kme = Application("Keyboard Maestro Engine")
 vo = Application("VoiceOver")
@@ -152,8 +156,12 @@ vo.output("Inspector off")
 						<true/>
 						<key>MacroActionType</key>
 						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
 						<key>Path</key>
 						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
 						<key>Text</key>
 						<string>currentCommand = "osr"
 
@@ -273,6 +281,8 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
+		<key>IsActive</key>
+		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -285,8 +295,12 @@ if (runSingle) single()
 						<true/>
 						<key>MacroActionType</key>
 						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
 						<key>Path</key>
 						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
 						<key>Text</key>
 						<string>kme = Application("Keyboard Maestro Engine")
 vo = Application("VoiceOver")
@@ -365,6 +379,8 @@ vo.output(msg)
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
+		<key>IsActive</key>
+		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -377,8 +393,12 @@ vo.output(msg)
 						<true/>
 						<key>MacroActionType</key>
 						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
 						<key>Path</key>
 						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
 						<key>Text</key>
 						<string>kme = Application("Keyboard Maestro Engine")
 vo = Application("VoiceOver")
@@ -459,6 +479,8 @@ vo.output(msg)
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
+		<key>IsActive</key>
+		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -471,8 +493,12 @@ vo.output(msg)
 						<true/>
 						<key>MacroActionType</key>
 						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
 						<key>Path</key>
 						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
 						<key>Text</key>
 						<string>kme = Application("Keyboard Maestro Engine")
 vo = Application("VoiceOver")
@@ -553,6 +579,8 @@ vo.output(msg)
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
+		<key>IsActive</key>
+		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -565,8 +593,12 @@ vo.output(msg)
 						<true/>
 						<key>MacroActionType</key>
 						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
 						<key>Path</key>
 						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
 						<key>Text</key>
 						<string>kme = Application("Keyboard Maestro Engine")
 vo = Application("VoiceOver")
@@ -647,6 +679,8 @@ vo.output(msg)
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
+		<key>IsActive</key>
+		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -659,8 +693,12 @@ vo.output(msg)
 						<true/>
 						<key>MacroActionType</key>
 						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
 						<key>Path</key>
 						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
 						<key>Text</key>
 						<string>kme = Application("Keyboard Maestro Engine")
 vo = Application("VoiceOver")
@@ -741,6 +779,8 @@ vo.output(msg)
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
+		<key>IsActive</key>
+		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -753,8 +793,12 @@ vo.output(msg)
 						<true/>
 						<key>MacroActionType</key>
 						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
 						<key>Path</key>
 						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
 						<key>Text</key>
 						<string>vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
@@ -841,8 +885,12 @@ vo.output(value)
 						<true/>
 						<key>MacroActionType</key>
 						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
 						<key>Path</key>
 						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
 						<key>Text</key>
 						<string>currentCommand = "osi"
 
@@ -970,8 +1018,12 @@ if (runSingle) single()
 						<true/>
 						<key>MacroActionType</key>
 						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
 						<key>Path</key>
 						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
 						<key>Text</key>
 						<string>vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
@@ -1057,8 +1109,12 @@ vo.output(msg)
 						<true/>
 						<key>MacroActionType</key>
 						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
 						<key>Path</key>
 						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
 						<key>Text</key>
 						<string>currentCommand = "osm"
 
@@ -1178,6 +1234,8 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
+		<key>IsActive</key>
+		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -1190,8 +1248,12 @@ if (runSingle) single()
 						<true/>
 						<key>MacroActionType</key>
 						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
 						<key>Path</key>
 						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
 						<key>Text</key>
 						<string>kme = Application("Keyboard Maestro Engine")
 vo = Application("VoiceOver")
@@ -1280,8 +1342,12 @@ vo.output(msg)
 						<true/>
 						<key>MacroActionType</key>
 						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
 						<key>Path</key>
 						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
 						<key>Text</key>
 						<string>vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
@@ -1368,8 +1434,12 @@ vo.output(msg)
 						<true/>
 						<key>MacroActionType</key>
 						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
 						<key>Path</key>
 						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
 						<key>Text</key>
 						<string>vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
@@ -1456,8 +1526,12 @@ vo.output(msg)
 						<true/>
 						<key>MacroActionType</key>
 						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
 						<key>Path</key>
 						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
 						<key>Text</key>
 						<string>vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
@@ -1535,6 +1609,8 @@ vo.output(msg)
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
+		<key>IsActive</key>
+		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -1547,8 +1623,12 @@ vo.output(msg)
 						<true/>
 						<key>MacroActionType</key>
 						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
 						<key>Path</key>
 						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
 						<key>Text</key>
 						<string>vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
@@ -1635,8 +1715,12 @@ vo.output(value)
 						<true/>
 						<key>MacroActionType</key>
 						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
 						<key>Path</key>
 						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
 						<key>Text</key>
 						<string>currentCommand = "oss"
 
@@ -1756,6 +1840,8 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
+		<key>IsActive</key>
+		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -1768,8 +1854,12 @@ if (runSingle) single()
 						<true/>
 						<key>MacroActionType</key>
 						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
 						<key>Path</key>
 						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
 						<key>Text</key>
 						<string>currentCommand = "l"
 
@@ -1886,8 +1976,12 @@ if (runSingle) single()
 						<true/>
 						<key>MacroActionType</key>
 						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
 						<key>Path</key>
 						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
 						<key>Text</key>
 						<string>currentCommand = "cf6"
 
@@ -1998,8 +2092,12 @@ if (runSingle) single()
 						<true/>
 						<key>MacroActionType</key>
 						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
 						<key>Path</key>
 						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
 						<key>Text</key>
 						<string>currentCommand = "cf6"
 
@@ -2102,6 +2200,8 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
+		<key>IsActive</key>
+		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -2114,8 +2214,12 @@ if (runSingle) single()
 						<true/>
 						<key>MacroActionType</key>
 						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
 						<key>Path</key>
 						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
 						<key>Text</key>
 						<string>currentCommand = "g"
 
@@ -2220,6 +2324,8 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
+		<key>IsActive</key>
+		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -2232,8 +2338,12 @@ if (runSingle) single()
 						<true/>
 						<key>MacroActionType</key>
 						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
 						<key>Path</key>
 						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
 						<key>Text</key>
 						<string>currentCommand = "i"
 
@@ -2342,6 +2452,8 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
+		<key>IsActive</key>
+		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -2354,8 +2466,12 @@ if (runSingle) single()
 						<true/>
 						<key>MacroActionType</key>
 						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
 						<key>Path</key>
 						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
 						<key>Text</key>
 						<string>currentCommand = "o"
 
@@ -2459,6 +2575,8 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
+		<key>IsActive</key>
+		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -2471,8 +2589,12 @@ if (runSingle) single()
 						<true/>
 						<key>MacroActionType</key>
 						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
 						<key>Path</key>
 						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
 						<key>Text</key>
 						<string>currentCommand = "p"
 
@@ -2576,6 +2698,8 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
+		<key>IsActive</key>
+		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -2588,8 +2712,12 @@ if (runSingle) single()
 						<true/>
 						<key>MacroActionType</key>
 						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
 						<key>Path</key>
 						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
 						<key>Text</key>
 						<string>currentCommand = "m"
 
@@ -2707,6 +2835,8 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
+		<key>IsActive</key>
+		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -2719,8 +2849,12 @@ if (runSingle) single()
 						<true/>
 						<key>MacroActionType</key>
 						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
 						<key>Path</key>
 						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
 						<key>Text</key>
 						<string>currentCommand = "s"
 
@@ -2840,14 +2974,127 @@ if (runSingle) single()
 				<key>Actions</key>
 				<array>
 					<dict>
+						<key>MacroActionType</key>
+						<string>SetVariableToText</string>
+						<key>Text</key>
+						<string>%ExecutingMacroUUID%</string>
+						<key>Variable</key>
+						<string>MacroID</string>
+					</dict>
+					<dict>
 						<key>DisplayKind</key>
 						<string>None</string>
 						<key>IncludeStdErr</key>
 						<true/>
 						<key>MacroActionType</key>
 						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
 						<key>Path</key>
 						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
+						<key>Text</key>
+						<string>vo = Application("VoiceOver")
+sys = Application("System Events")
+logic = sys.applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
+try {
+obj = window.groups.whose({description:"Control Bar"}).buttons.byName("Autopunch")
+obj.click()
+} catch (err) {
+kme = Application("Keyboard Maestro Engine")
+id = kme.getvariable("MacroID")
+script = '&lt;array&gt;&lt;dict&gt;&lt;key&gt;Action&lt;/key&gt;&lt;string&gt;Disable&lt;/string&gt;&lt;key&gt;MacroActionType&lt;/key&gt;&lt;string&gt;SetMacroEnable&lt;/string&gt;&lt;key&gt;MacroUID&lt;/key&gt;&lt;string&gt;'+id+'&lt;/string&gt;&lt;/dict&gt;&lt;/array&gt;'
+kme.doScript(script)
+sys.keystroke("p", {using:["control down", "command down", "option down"]})
+script = '&lt;array&gt;&lt;dict&gt;&lt;key&gt;Action&lt;/key&gt;&lt;string&gt;Enable&lt;/string&gt;&lt;key&gt;MacroActionType&lt;/key&gt;&lt;string&gt;SetMacroEnable&lt;/string&gt;&lt;key&gt;MacroUID&lt;/key&gt;&lt;string&gt;'+id+'&lt;/string&gt;&lt;/dict&gt;&lt;/array&gt;'
+kme.doScript(script)
+}
+value = obj.value()
+if (value == 0) vo.output("Autopunch off")
+else vo.output("Autopunch on")
+
+</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>TrimResultsNew</key>
+						<true/>
+						<key>UseText</key>
+						<true/>
+					</dict>
+				</array>
+				<key>CreationDate</key>
+				<real>533091633.37906802</real>
+				<key>ModificationDate</key>
+				<real>533093755.05098999</real>
+				<key>Name</key>
+				<string>Toggle Auto Punch</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>35</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>6400</integer>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>BEC31043-FA04-4646-9008-ECA460E65AC2</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>Flogic</string>
+		<key>Targeting</key>
+		<dict>
+			<key>Targeting</key>
+			<string>Included</string>
+			<key>TargetingApps</key>
+			<array>
+				<dict>
+					<key>BundleIdentifier</key>
+					<string>com.apple.logic10</string>
+					<key>Name</key>
+					<string>Logic Pro X</string>
+					<key>NewFile</key>
+					<string>/Applications/Logic Pro X.app</string>
+				</dict>
+			</array>
+		</dict>
+		<key>ToggleMacroUID</key>
+		<string>5B52B143-96D5-42A8-BF6B-9D1E6FF1240F</string>
+		<key>UID</key>
+		<string>C52D9A0D-70FA-4012-B37E-ABE66F0A7841</string>
+	</dict>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>CreationDate</key>
+		<real>499539568.21792102</real>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>DisplayKind</key>
+						<string>None</string>
+						<key>IncludeStdErr</key>
+						<true/>
+						<key>MacroActionType</key>
+						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
+						<key>Path</key>
+						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
 						<key>Text</key>
 						<string>vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
@@ -2927,13 +3174,199 @@ else vo.output("Cycle on")
 				<array>
 					<dict>
 						<key>DisplayKind</key>
+						<string>None</string>
+						<key>IncludeStdErr</key>
+						<true/>
+						<key>MacroActionType</key>
+						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
+						<key>Path</key>
+						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
+						<key>Text</key>
+						<string>vo = Application("VoiceOver")
+sys = Application("System Events")
+logic = sys.applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
+obj = window.groups.whose({description:"Control Bar"}).buttons.byName("Replace")
+obj.click()
+value = obj.value()
+if (value == 0) vo.output("Replace mode off")
+else vo.output("Replace mode on")
+
+</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>TrimResultsNew</key>
+						<true/>
+						<key>UseText</key>
+						<true/>
+					</dict>
+				</array>
+				<key>CreationDate</key>
+				<real>533093566.45330203</real>
+				<key>ModificationDate</key>
+				<real>533093630.87040198</real>
+				<key>Name</key>
+				<string>Toggle Replace</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>15</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>6400</integer>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>F58607BF-0506-46E0-BE86-240A1C04F74B</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>Flogic</string>
+		<key>Targeting</key>
+		<dict>
+			<key>Targeting</key>
+			<string>Included</string>
+			<key>TargetingApps</key>
+			<array>
+				<dict>
+					<key>BundleIdentifier</key>
+					<string>com.apple.logic10</string>
+					<key>Name</key>
+					<string>Logic Pro X</string>
+					<key>NewFile</key>
+					<string>/Applications/Logic Pro X.app</string>
+				</dict>
+			</array>
+		</dict>
+		<key>ToggleMacroUID</key>
+		<string>5B52B143-96D5-42A8-BF6B-9D1E6FF1240F</string>
+		<key>UID</key>
+		<string>C52D9A0D-70FA-4012-B37E-ABE66F0A7841</string>
+	</dict>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>CreationDate</key>
+		<real>499539568.21792102</real>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>DisplayKind</key>
+						<string>None</string>
+						<key>IncludeStdErr</key>
+						<true/>
+						<key>MacroActionType</key>
+						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
+						<key>Path</key>
+						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
+						<key>Text</key>
+						<string>vo = Application("VoiceOver")
+sys = Application("System Events")
+logic = sys.applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
+obj = window.groups.whose({description:"Control Bar"}).buttons.byName("Solo")
+obj.click()
+value = obj.value()
+if (value == 0) vo.output("Solo mode off")
+else vo.output("Solo mode on")
+
+</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>TrimResultsNew</key>
+						<true/>
+						<key>UseText</key>
+						<true/>
+					</dict>
+				</array>
+				<key>CreationDate</key>
+				<real>533093158.60092402</real>
+				<key>ModificationDate</key>
+				<real>533093547.191957</real>
+				<key>Name</key>
+				<string>Toggle Solo Mode</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>1</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>4096</integer>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>3ED262D6-895B-4B39-8A73-B6AFA2F9AF71</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>Flogic</string>
+		<key>Targeting</key>
+		<dict>
+			<key>Targeting</key>
+			<string>Included</string>
+			<key>TargetingApps</key>
+			<array>
+				<dict>
+					<key>BundleIdentifier</key>
+					<string>com.apple.logic10</string>
+					<key>Name</key>
+					<string>Logic Pro X</string>
+					<key>NewFile</key>
+					<string>/Applications/Logic Pro X.app</string>
+				</dict>
+			</array>
+		</dict>
+		<key>ToggleMacroUID</key>
+		<string>5B52B143-96D5-42A8-BF6B-9D1E6FF1240F</string>
+		<key>UID</key>
+		<string>C52D9A0D-70FA-4012-B37E-ABE66F0A7841</string>
+	</dict>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>CreationDate</key>
+		<real>499539568.21792102</real>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>DisplayKind</key>
 						<string>Window</string>
 						<key>IncludeStdErr</key>
 						<true/>
 						<key>MacroActionType</key>
 						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
 						<key>Path</key>
 						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
 						<key>Text</key>
 						<string>kme = Application("Keyboard Maestro Engine")
 verbosity = kme.getvariable("fgVerbosity")
