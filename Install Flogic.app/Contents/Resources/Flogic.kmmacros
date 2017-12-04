@@ -26,143 +26,6 @@
 						<key>StopOnFailure</key>
 						<false/>
 						<key>Text</key>
-						<string>kme = Application("Keyboard Maestro Engine")
-vo = Application("VoiceOver")
-inspector = kme.getvariable("flInspector")
-if (inspector == "1") {
-kme.setvariable("flInspector", {to:"0"})
-vo.output("Inspector On")
-} else {
-kme.setvariable("flInspector", {to:"1"})
-vo.output("Inspector off")
-}
-</string>
-						<key>TimeOutAbortsMacro</key>
-						<true/>
-						<key>TrimResults</key>
-						<true/>
-						<key>TrimResultsNew</key>
-						<true/>
-						<key>UseText</key>
-						<true/>
-					</dict>
-					<dict>
-						<key>Conditions</key>
-						<dict>
-							<key>ConditionList</key>
-							<array>
-								<dict>
-									<key>ConditionType</key>
-									<string>Variable</string>
-									<key>Variable</key>
-									<string>flInspector</string>
-									<key>VariableConditionType</key>
-									<string>IsNot</string>
-									<key>VariableValue</key>
-									<string>1</string>
-								</dict>
-							</array>
-							<key>ConditionListMatch</key>
-							<string>All</string>
-						</dict>
-						<key>ElseActions</key>
-						<array>
-							<dict>
-								<key>Action</key>
-								<string>Disable</string>
-								<key>MacroActionType</key>
-								<string>SetMacroEnable</string>
-								<key>MacroUID</key>
-								<string>64EAC9F9-2720-4CE3-99DE-8A54F07FC4E9</string>
-							</dict>
-						</array>
-						<key>MacroActionType</key>
-						<string>IfThenElse</string>
-						<key>ThenActions</key>
-						<array>
-							<dict>
-								<key>Action</key>
-								<string>Enable</string>
-								<key>MacroActionType</key>
-								<string>SetMacroEnable</string>
-								<key>MacroUID</key>
-								<string>64EAC9F9-2720-4CE3-99DE-8A54F07FC4E9</string>
-							</dict>
-						</array>
-						<key>TimeOutAbortsMacro</key>
-						<true/>
-					</dict>
-				</array>
-				<key>CreationDate</key>
-				<real>494579480.78613901</real>
-				<key>ModificationDate</key>
-				<real>524302099.71871901</real>
-				<key>Name</key>
-				<string>Activate/Deactivate INspector</string>
-				<key>Triggers</key>
-				<array>
-					<dict>
-						<key>FireType</key>
-						<string>Pressed</string>
-						<key>KeyCode</key>
-						<integer>44</integer>
-						<key>MacroTriggerType</key>
-						<string>HotKey</string>
-						<key>Modifiers</key>
-						<integer>512</integer>
-					</dict>
-				</array>
-				<key>UID</key>
-				<string>2F4782D1-E2A5-44BE-AC7A-7EDBF7AA9471</string>
-			</dict>
-		</array>
-		<key>Name</key>
-		<string>Flogic</string>
-		<key>Targeting</key>
-		<dict>
-			<key>Targeting</key>
-			<string>Included</string>
-			<key>TargetingApps</key>
-			<array>
-				<dict>
-					<key>BundleIdentifier</key>
-					<string>com.apple.logic10</string>
-					<key>Name</key>
-					<string>Logic Pro X</string>
-					<key>NewFile</key>
-					<string>/Applications/Logic Pro X.app</string>
-				</dict>
-			</array>
-		</dict>
-		<key>ToggleMacroUID</key>
-		<string>5B52B143-96D5-42A8-BF6B-9D1E6FF1240F</string>
-		<key>UID</key>
-		<string>C52D9A0D-70FA-4012-B37E-ABE66F0A7841</string>
-	</dict>
-	<dict>
-		<key>Activate</key>
-		<string>Normal</string>
-		<key>CreationDate</key>
-		<real>499539568.21792102</real>
-		<key>Macros</key>
-		<array>
-			<dict>
-				<key>Actions</key>
-				<array>
-					<dict>
-						<key>DisplayKind</key>
-						<string>None</string>
-						<key>IncludeStdErr</key>
-						<true/>
-						<key>MacroActionType</key>
-						<string>ExecuteJavaScriptForAutomation</string>
-						<key>NotifyOnFailure</key>
-						<false/>
-						<key>Path</key>
-						<string></string>
-						<key>StopOnFailure</key>
-						<false/>
-						<key>Text</key>
 						<string>currentCommand = "osr"
 
 function single() {
@@ -281,8 +144,6 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
-		<key>IsActive</key>
-		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -379,8 +240,6 @@ vo.output(msg)
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
-		<key>IsActive</key>
-		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -479,8 +338,6 @@ vo.output(msg)
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
-		<key>IsActive</key>
-		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -579,8 +436,6 @@ vo.output(msg)
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
-		<key>IsActive</key>
-		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -679,8 +534,6 @@ vo.output(msg)
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
-		<key>IsActive</key>
-		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -779,8 +632,6 @@ vo.output(msg)
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
-		<key>IsActive</key>
-		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -1234,8 +1085,6 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
-		<key>IsActive</key>
-		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -1609,8 +1458,6 @@ vo.output(msg)
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
-		<key>IsActive</key>
-		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -1840,8 +1687,6 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
-		<key>IsActive</key>
-		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -2200,8 +2045,6 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
-		<key>IsActive</key>
-		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -2324,8 +2167,6 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
-		<key>IsActive</key>
-		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -2452,8 +2293,6 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
-		<key>IsActive</key>
-		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -2575,8 +2414,6 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
-		<key>IsActive</key>
-		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -2698,8 +2535,6 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
-		<key>IsActive</key>
-		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -2835,8 +2670,6 @@ if (runSingle) single()
 		<string>TitleMatches</string>
 		<key>FocussedWindowTitle</key>
 		<string> - Tracks$</string>
-		<key>IsActive</key>
-		<false/>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -2920,7 +2753,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>499551018.94458997</real>
 				<key>ModificationDate</key>
-				<real>524517900.86078101</real>
+				<real>533999434.39420998</real>
 				<key>Name</key>
 				<string>Speak/Toggle Solo</string>
 				<key>Triggers</key>
@@ -3137,6 +2970,332 @@ else vo.output("Cycle on")
 				</array>
 				<key>UID</key>
 				<string>84AA8429-7402-4E23-96EF-B44745F52F64</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>Flogic</string>
+		<key>Targeting</key>
+		<dict>
+			<key>Targeting</key>
+			<string>Included</string>
+			<key>TargetingApps</key>
+			<array>
+				<dict>
+					<key>BundleIdentifier</key>
+					<string>com.apple.logic10</string>
+					<key>Name</key>
+					<string>Logic Pro X</string>
+					<key>NewFile</key>
+					<string>/Applications/Logic Pro X.app</string>
+				</dict>
+			</array>
+		</dict>
+		<key>ToggleMacroUID</key>
+		<string>5B52B143-96D5-42A8-BF6B-9D1E6FF1240F</string>
+		<key>UID</key>
+		<string>C52D9A0D-70FA-4012-B37E-ABE66F0A7841</string>
+	</dict>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>CreationDate</key>
+		<real>499539568.21792102</real>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>Conditions</key>
+						<dict>
+							<key>ConditionList</key>
+							<array>
+								<dict>
+									<key>ConditionType</key>
+									<string>Key</string>
+									<key>KeyCode</key>
+									<integer>50</integer>
+									<key>KeyConditionType</key>
+									<string>Down</string>
+								</dict>
+							</array>
+							<key>ConditionListMatch</key>
+							<string>All</string>
+						</dict>
+						<key>ElseActions</key>
+						<array>
+							<dict>
+								<key>DisplayToggle</key>
+								<false/>
+								<key>MacroActionType</key>
+								<string>MacroGroupToggle</string>
+								<key>MacroGroupUID</key>
+								<string>64EAC9F9-2720-4CE3-99DE-8A54F07FC4E9</string>
+								<key>ToggleMode</key>
+								<string>Deactivate</string>
+							</dict>
+							<dict>
+								<key>DisplayKind</key>
+								<string>Window</string>
+								<key>IncludeStdErr</key>
+								<true/>
+								<key>MacroActionType</key>
+								<string>ExecuteJavaScriptForAutomation</string>
+								<key>NotifyOnFailure</key>
+								<false/>
+								<key>Path</key>
+								<string></string>
+								<key>StopOnFailure</key>
+								<false/>
+								<key>Text</key>
+								<string>currentCommand = "`"
+kme = Application("Keyboard Maestro Engine")
+command = kme.getvariable("command").split(".")
+start = new Date().getTime()
+kme.setvariable("command", {to:currentCommand+"."+start})
+if (currentCommand == command[0] &amp; start-command[1]&lt;200) {
+script = `&lt;array&gt;
+	&lt;dict&gt;
+		&lt;key&gt;DisplayToggle&lt;/key&gt;
+		&lt;false/&gt;
+		&lt;key&gt;MacroActionType&lt;/key&gt;
+		&lt;string&gt;MacroGroupToggle&lt;/string&gt;
+		&lt;key&gt;MacroGroupUID&lt;/key&gt;
+		&lt;string&gt;64EAC9F9-2720-4CE3-99DE-8A54F07FC4E9&lt;/string&gt;
+		&lt;key&gt;ToggleMode&lt;/key&gt;
+		&lt;string&gt;Activate&lt;/string&gt;
+	&lt;/dict&gt;
+&lt;/array&gt;`
+Application("VoiceOver").output("Inspector On")
+kme.doScript(script)
+kme.playSound(Path("/System/Library/Sounds/Tink.aiff"))
+}
+</string>
+								<key>TimeOutAbortsMacro</key>
+								<true/>
+								<key>TrimResults</key>
+								<true/>
+								<key>TrimResultsNew</key>
+								<true/>
+								<key>UseText</key>
+								<true/>
+							</dict>
+						</array>
+						<key>MacroActionType</key>
+						<string>IfThenElse</string>
+						<key>ThenActions</key>
+						<array>
+							<dict>
+								<key>DisplayToggle</key>
+								<false/>
+								<key>MacroActionType</key>
+								<string>MacroGroupToggle</string>
+								<key>MacroGroupUID</key>
+								<string>64EAC9F9-2720-4CE3-99DE-8A54F07FC4E9</string>
+								<key>ToggleMode</key>
+								<string>Activate</string>
+							</dict>
+						</array>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+					</dict>
+				</array>
+				<key>CreationDate</key>
+				<real>533998645.120296</real>
+				<key>ModificationDate</key>
+				<real>534050737.49337399</real>
+				<key>Name</key>
+				<string>Toggle INspector</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>50</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>0</integer>
+					</dict>
+					<dict>
+						<key>FireType</key>
+						<string>Released</string>
+						<key>KeyCode</key>
+						<integer>50</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>0</integer>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>4FBC39D6-B10A-4D91-AD44-37E6998444E8</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>Flogic</string>
+		<key>Targeting</key>
+		<dict>
+			<key>Targeting</key>
+			<string>Included</string>
+			<key>TargetingApps</key>
+			<array>
+				<dict>
+					<key>BundleIdentifier</key>
+					<string>com.apple.logic10</string>
+					<key>Name</key>
+					<string>Logic Pro X</string>
+					<key>NewFile</key>
+					<string>/Applications/Logic Pro X.app</string>
+				</dict>
+			</array>
+		</dict>
+		<key>ToggleMacroUID</key>
+		<string>5B52B143-96D5-42A8-BF6B-9D1E6FF1240F</string>
+		<key>UID</key>
+		<string>C52D9A0D-70FA-4012-B37E-ABE66F0A7841</string>
+	</dict>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>CreationDate</key>
+		<real>499539568.21792102</real>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>Conditions</key>
+						<dict>
+							<key>ConditionList</key>
+							<array>
+								<dict>
+									<key>ConditionType</key>
+									<string>Macro</string>
+									<key>MacroConditionType</key>
+									<string>IsInactive</string>
+									<key>MacroUID</key>
+									<string>64EAC9F9-2720-4CE3-99DE-8A54F07FC4E9</string>
+								</dict>
+							</array>
+							<key>ConditionListMatch</key>
+							<string>All</string>
+						</dict>
+						<key>ElseActions</key>
+						<array>
+							<dict>
+								<key>DisplayToggle</key>
+								<false/>
+								<key>MacroActionType</key>
+								<string>MacroGroupToggle</string>
+								<key>MacroGroupUID</key>
+								<string>64EAC9F9-2720-4CE3-99DE-8A54F07FC4E9</string>
+								<key>ToggleMode</key>
+								<string>Deactivate</string>
+							</dict>
+							<dict>
+								<key>DisplayKind</key>
+								<string>None</string>
+								<key>IncludeStdErr</key>
+								<true/>
+								<key>MacroActionType</key>
+								<string>ExecuteJavaScriptForAutomation</string>
+								<key>NotifyOnFailure</key>
+								<false/>
+								<key>Path</key>
+								<string></string>
+								<key>StopOnFailure</key>
+								<false/>
+								<key>Text</key>
+								<string>Application("VoiceOver").output("Inspector Off")
+</string>
+								<key>TimeOutAbortsMacro</key>
+								<true/>
+								<key>TrimResults</key>
+								<true/>
+								<key>TrimResultsNew</key>
+								<true/>
+								<key>UseText</key>
+								<true/>
+							</dict>
+						</array>
+						<key>MacroActionType</key>
+						<string>IfThenElse</string>
+						<key>ThenActions</key>
+						<array>
+							<dict>
+								<key>DisplayToggle</key>
+								<false/>
+								<key>MacroActionType</key>
+								<string>MacroGroupToggle</string>
+								<key>MacroGroupUID</key>
+								<string>64EAC9F9-2720-4CE3-99DE-8A54F07FC4E9</string>
+								<key>ToggleMode</key>
+								<string>Activate</string>
+							</dict>
+							<dict>
+								<key>DisplayKind</key>
+								<string>None</string>
+								<key>IncludeStdErr</key>
+								<true/>
+								<key>MacroActionType</key>
+								<string>ExecuteJavaScriptForAutomation</string>
+								<key>NotifyOnFailure</key>
+								<false/>
+								<key>Path</key>
+								<string></string>
+								<key>StopOnFailure</key>
+								<false/>
+								<key>Text</key>
+								<string>Application("VoiceOver").output("Inspector On")
+</string>
+								<key>TimeOutAbortsMacro</key>
+								<true/>
+								<key>TrimResults</key>
+								<true/>
+								<key>TrimResultsNew</key>
+								<true/>
+								<key>UseText</key>
+								<true/>
+							</dict>
+						</array>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+					</dict>
+				</array>
+				<key>CreationDate</key>
+				<real>494579480.78613901</real>
+				<key>ModificationDate</key>
+				<real>534050712.337587</real>
+				<key>Name</key>
+				<string>Toggle INspector</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>50</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>4096</integer>
+					</dict>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>44</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>512</integer>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>2F4782D1-E2A5-44BE-AC7A-7EDBF7AA9471</string>
 			</dict>
 		</array>
 		<key>Name</key>
