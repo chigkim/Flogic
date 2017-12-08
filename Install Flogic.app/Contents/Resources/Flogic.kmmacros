@@ -2845,9 +2845,11 @@ script = '&lt;array&gt;&lt;dict&gt;&lt;key&gt;Action&lt;/key&gt;&lt;string&gt;En
 kme.doScript(script)
 }
 value = obj.value()
-if (value == 0) vo.output("Autopunch off")
-else vo.output("Autopunch on")
-
+if (Application("Keyboard Maestro Engine").getvariable("fgVerbosity") == "long") msg = "Autopunch "
+else msg = ""
+if (value == 0) msg += "off"
+else msg += "on"
+vo.output(msg)
 </string>
 						<key>TimeOutAbortsMacro</key>
 						<true/>
@@ -2862,7 +2864,7 @@ else vo.output("Autopunch on")
 				<key>CreationDate</key>
 				<real>533091633.37906802</real>
 				<key>ModificationDate</key>
-				<real>533093755.05098999</real>
+				<real>534412478.91116601</real>
 				<key>Name</key>
 				<string>Toggle Auto Punch</string>
 				<key>Triggers</key>
@@ -2935,9 +2937,11 @@ window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
 obj = window.groups.whose({description:"Control Bar"}).checkboxes.byName("Cycle")
 obj.click()
 value = obj.value()
-if (value == 0) vo.output("Cycle off")
-else vo.output("Cycle on")
-
+if (Application("Keyboard Maestro Engine").getvariable("fgVerbosity") == "long") msg = "Cycle "
+else msg = ""
+if (value == 0) msg += "off"
+else msg += "on"
+vo.output(msg)
 </string>
 						<key>TimeOutAbortsMacro</key>
 						<true/>
@@ -2952,7 +2956,7 @@ else vo.output("Cycle on")
 				<key>CreationDate</key>
 				<real>504407929.39738297</real>
 				<key>ModificationDate</key>
-				<real>524600716.67926902</real>
+				<real>534412216.658135</real>
 				<key>Name</key>
 				<string>Toggle Cycle</string>
 				<key>Triggers</key>
@@ -3209,7 +3213,9 @@ kme.playSound(Path("/System/Library/Sounds/Tink.aiff"))
 								<key>StopOnFailure</key>
 								<false/>
 								<key>Text</key>
-								<string>Application("VoiceOver").output("Inspector Off")
+								<string>if (Application("Keyboard Maestro Engine").getvariable("fgVerbosity") == "long") msg = "Inspector off"
+else msg = "off"
+Application("VoiceOver").output(msg)
 </string>
 								<key>TimeOutAbortsMacro</key>
 								<true/>
@@ -3249,7 +3255,9 @@ kme.playSound(Path("/System/Library/Sounds/Tink.aiff"))
 								<key>StopOnFailure</key>
 								<false/>
 								<key>Text</key>
-								<string>Application("VoiceOver").output("Inspector On")
+								<string>if (Application("Keyboard Maestro Engine").getvariable("fgVerbosity") == "long") msg = "Inspector on"
+else msg = "On"
+Application("VoiceOver").output(msg)
 </string>
 								<key>TimeOutAbortsMacro</key>
 								<true/>
@@ -3268,7 +3276,7 @@ kme.playSound(Path("/System/Library/Sounds/Tink.aiff"))
 				<key>CreationDate</key>
 				<real>494579480.78613901</real>
 				<key>ModificationDate</key>
-				<real>534050712.337587</real>
+				<real>534412350.040582</real>
 				<key>Name</key>
 				<string>Toggle INspector</string>
 				<key>Triggers</key>
@@ -3352,9 +3360,11 @@ window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
 obj = window.groups.whose({description:"Control Bar"}).buttons.byName("Replace")
 obj.click()
 value = obj.value()
-if (value == 0) vo.output("Replace mode off")
-else vo.output("Replace mode on")
-
+if (Application("Keyboard Maestro Engine").getvariable("fgVerbosity") == "long") msg = "Replace mode "
+else msg = ""
+if (value == 0) msg += "off"
+else msg += "on"
+vo.output(msg)
 </string>
 						<key>TimeOutAbortsMacro</key>
 						<true/>
@@ -3369,7 +3379,7 @@ else vo.output("Replace mode on")
 				<key>CreationDate</key>
 				<real>533093566.45330203</real>
 				<key>ModificationDate</key>
-				<real>533093630.87040198</real>
+				<real>534412053.64351201</real>
 				<key>Name</key>
 				<string>Toggle Replace</string>
 				<key>Triggers</key>
@@ -3443,9 +3453,11 @@ window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
 obj = window.groups.whose({description:"Control Bar"}).buttons.byName("Solo")
 obj.click()
 value = obj.value()
-if (value == 0) vo.output("Solo mode off")
-else vo.output("Solo mode on")
-
+if (Application("Keyboard Maestro Engine").getvariable("fgVerbosity") == "long") msg = "Solo Mode "
+else msg = ""
+if (value == 0) msg += "off"
+else msg+= "on"
+vo.output(msg)
 </string>
 						<key>TimeOutAbortsMacro</key>
 						<true/>
@@ -3460,7 +3472,7 @@ else vo.output("Solo mode on")
 				<key>CreationDate</key>
 				<real>533093158.60092402</real>
 				<key>ModificationDate</key>
-				<real>533093547.191957</real>
+				<real>534411984.06436503</real>
 				<key>Name</key>
 				<string>Toggle Solo Mode</string>
 				<key>Triggers</key>
