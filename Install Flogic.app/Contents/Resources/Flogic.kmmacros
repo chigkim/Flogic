@@ -31,14 +31,20 @@
 function single() {
 vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
-
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-group = window.groups.whose({description:"Inspector"})[0]
-
-insert = group.lists[0].lists[0].groups[0].groups.whose({description:"Audio FX"})[0].groups[0]
-
-
-
+text = vo.voCursor.textUnderCursor()
+if (text.indexOf("channel strip group") &gt; -1) {
+mixerWindow = logic.windows.whose({name:{_endsWith:" - Mixer: Tracks"}})
+if (mixerWindow.length&gt;0)
+window = mixerWindow[0]
+mixer = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Mixer"]})[0]
+strips = mixer.groups[1].splitterGroups[0].splitterGroups[0].lists[0].groups
+strip = strips.whose({description:text.replace(" channel strip group", "")})[0]
+} else {
+inspector = window.groups.whose({description:"Inspector"})[0]
+strip = inspector.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"})[0]
+}
+insert = strip.groups.whose({description:"Audio FX"})[0].groups[0]
 insert.popUpButtons[0].click()
 }
 
@@ -47,9 +53,20 @@ vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-group = window.groups.whose({description:"Inspector"})[0]
+text = vo.voCursor.textUnderCursor()
+if (text.indexOf("channel strip group") &gt; -1) {
+mixerWindow = logic.windows.whose({name:{_endsWith:" - Mixer: Tracks"}})
+if (mixerWindow.length&gt;0)
+window = mixerWindow[0]
+mixer = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Mixer"]})[0]
+strips = mixer.groups[1].splitterGroups[0].splitterGroups[0].lists[0].groups
+strip = strips.whose({description:text.replace(" channel strip group", "")})[0]
+} else {
+inspector = window.groups.whose({description:"Inspector"})[0]
+strip = inspector.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"})[0]
+}
 
-insert = group.lists[0].lists[0].groups[0]
+insert = strip
 offset = 0
 if (insert.groups[0].description() != "Audio FX")
 offset = 1
@@ -89,7 +106,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>540849439.71383297</real>
 				<key>ModificationDate</key>
-				<real>543330296.07168806</real>
+				<real>543405744.00223005</real>
 				<key>Name</key>
 				<string>Assign Insert 1</string>
 				<key>Triggers</key>
@@ -165,7 +182,6 @@ logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
 group = window.groups.whose({description:"Inspector"})[0]
 
-insert = group.lists[0].lists[0].groups[0]
 offset = 0
 if (insert.groups[0].description() != "Audio FX")
 offset = 1
@@ -230,7 +246,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>540857368.08411801</real>
 				<key>ModificationDate</key>
-				<real>543330369.52438796</real>
+				<real>543405790.55572796</real>
 				<key>Name</key>
 				<string>Assign Insert 2</string>
 				<key>Triggers</key>
@@ -1489,142 +1505,6 @@ if (runSingle) single()
 		<key>Activate</key>
 		<string>Normal</string>
 		<key>CreationDate</key>
-		<real>499539568.21792102</real>
-		<key>Macros</key>
-		<array>
-			<dict>
-				<key>Actions</key>
-				<array>
-					<dict>
-						<key>DisplayKind</key>
-						<string>None</string>
-						<key>IncludeStdErr</key>
-						<true/>
-						<key>MacroActionType</key>
-						<string>ExecuteJavaScriptForAutomation</string>
-						<key>NotifyOnFailure</key>
-						<false/>
-						<key>Path</key>
-						<string></string>
-						<key>StopOnFailure</key>
-						<false/>
-						<key>Text</key>
-						<string>currentCommand = "osr"
-
-function single() {
-vo = Application("VoiceOver")
-logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
-window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-tracks = window.groups[2].groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0]
-index = tracks.groups[0].checkboxes.description().indexOf("Record Enable")
-sp = ObjectSpecifier().checkboxes[index].value
-tracks = tracks.groups.whose({_match:[sp,3]}).description()
-msg = ""
-  
-
-
-for (t in tracks) {
-msg += tracks[t].match(/“(.*?)”/)[1]+", "
-}
-if (msg=="") msg = "No tracks are record enabled."
-else msg = tracks.length+" record enabled: "+msg
-vo.output(msg)
-}
-
-function double() {
-vo = Application("VoiceOver")
-logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
-window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-tracks = window.groups[2].groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0]
-index = tracks.groups[0].checkboxes.description().indexOf("Record Enable")
-sp = ObjectSpecifier().checkboxes[index].value
-tracks = tracks.groups.whose({_match:[sp,1]}).checkboxes[index]()
-for (t in tracks) {
-tracks[t].click()
-}
-vo.output("Record disabled all tracks")
-}
-
-kme = Application("Keyboard Maestro Engine")
-command = kme.getvariable("command").split(".")
-start = new Date().getTime()
-kme.setvariable("command", {to:currentCommand+"."+start})
-if (currentCommand == command[0] &amp; start-command[1]&lt;200) {
-kme.playSound(Path("/System/Library/Sounds/Tink.aiff"))
-double()
-} else  {
-runSingle = true
-while (new Date().getTime()-start&lt;200) {
-command = kme.getvariable("command").split(".")
-if (currentCommand == command[0] &amp; command[1]&gt;start) {
-runSingle=false
-break;
-}
-}
-if (runSingle) single()
-}
-
-</string>
-						<key>TimeOutAbortsMacro</key>
-						<true/>
-						<key>TrimResults</key>
-						<true/>
-						<key>TrimResultsNew</key>
-						<true/>
-						<key>UseText</key>
-						<true/>
-					</dict>
-				</array>
-				<key>CreationDate</key>
-				<real>542929450.15341496</real>
-				<key>ModificationDate</key>
-				<real>542929470.30584502</real>
-				<key>Name</key>
-				<string>Beta: Speak Record Enabled Tracks/Record Disable All Tracks copy</string>
-				<key>Triggers</key>
-				<array>
-					<dict>
-						<key>FireType</key>
-						<string>Pressed</string>
-						<key>KeyCode</key>
-						<integer>15</integer>
-						<key>MacroTriggerType</key>
-						<string>HotKey</string>
-						<key>Modifiers</key>
-						<integer>2816</integer>
-					</dict>
-				</array>
-				<key>UID</key>
-				<string>87D72010-0FAD-45BB-AA1D-20DA2CDB4062</string>
-			</dict>
-		</array>
-		<key>Name</key>
-		<string>Flogic</string>
-		<key>Targeting</key>
-		<dict>
-			<key>Targeting</key>
-			<string>Included</string>
-			<key>TargetingApps</key>
-			<array>
-				<dict>
-					<key>BundleIdentifier</key>
-					<string>com.apple.logic10</string>
-					<key>Name</key>
-					<string>Logic Pro X</string>
-					<key>NewFile</key>
-					<string>/Applications/Logic Pro X.app</string>
-				</dict>
-			</array>
-		</dict>
-		<key>ToggleMacroUID</key>
-		<string>5B52B143-96D5-42A8-BF6B-9D1E6FF1240F</string>
-		<key>UID</key>
-		<string>C52D9A0D-70FA-4012-B37E-ABE66F0A7841</string>
-	</dict>
-	<dict>
-		<key>Activate</key>
-		<string>Normal</string>
-		<key>CreationDate</key>
 		<real>499546191.00478101</real>
 		<key>Macros</key>
 		<array>
@@ -1649,8 +1529,19 @@ if (runSingle) single()
 vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-group = window.groups.whose({description:"Inspector"})[0]
-value = group.lists[0].lists[0].groups[0].sliders.whose({description:"Fader"})[0].value()
+text = vo.voCursor.textUnderCursor()
+if (text.indexOf("channel strip group") &gt; -1) {
+mixerWindow = logic.windows.whose({name:{_endsWith:" - Mixer: Tracks"}})
+if (mixerWindow.length&gt;0)
+window = mixerWindow[0]
+mixer = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Mixer"]})[0]
+strips = mixer.groups[1].splitterGroups[0].splitterGroups[0].lists[0].groups
+strip = strips.whose({description:text.replace(" channel strip group", "")})[0]
+} else {
+inspector = window.groups.whose({description:"Inspector"})[0]
+strip = inspector.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"})[0]
+}
+value = strip.sliders.whose({description:"Fader"})[0].value()
 verbosity = kme.getvariable("fgVerbosity")
 if (verbosity == "long") msg = "Volume "
 else msg = ""
@@ -1670,7 +1561,7 @@ vo.output(msg)
 				<key>CreationDate</key>
 				<real>499553352.65371102</real>
 				<key>ModificationDate</key>
-				<real>524517855.84875703</real>
+				<real>543406268.09385896</real>
 				<key>Name</key>
 				<string>Beta: Speak Volume</string>
 				<key>Triggers</key>
@@ -1833,8 +1724,19 @@ vo.output(msg)
 vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-group = window.groups.whose({description:"Inspector"})[0]
-obj = group.lists[0].lists[0].groups[0].sliders.whose({_not:[{description:"Fader"}]})[0]
+text = vo.voCursor.textUnderCursor()
+if (text.indexOf("channel strip group") &gt; -1) {
+mixerWindow = logic.windows.whose({name:{_endsWith:" - Mixer: Tracks"}})
+if (mixerWindow.length&gt;0)
+window = mixerWindow[0]
+mixer = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Mixer"]})[0]
+strips = mixer.groups[1].splitterGroups[0].splitterGroups[0].lists[0].groups
+strip = strips.whose({description:text.replace(" channel strip group", "")})[0]
+} else {
+inspector = window.groups.whose({description:"Inspector"})[0]
+strip = inspector.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"})[0]
+}
+obj = strip.sliders.whose({_not:[{description:"Fader"}]})[0]
 obj.decrement()
 value = obj.value()
 verbosity = kme.getvariable("fgVerbosity")
@@ -1856,7 +1758,7 @@ vo.output(msg)
 				<key>CreationDate</key>
 				<real>524317094.12898701</real>
 				<key>ModificationDate</key>
-				<real>524678432.19230598</real>
+				<real>543406314.36579895</real>
 				<key>Name</key>
 				<string>Decrease Pan</string>
 				<key>Triggers</key>
@@ -1927,8 +1829,19 @@ vo.output(msg)
 vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-group = window.groups.whose({description:"Inspector"})[0]
-obj = group.lists[0].lists[0].groups[0].sliders.whose({description:"Fader"})[0]
+text = vo.voCursor.textUnderCursor()
+if (text.indexOf("channel strip group") &gt; -1) {
+mixerWindow = logic.windows.whose({name:{_endsWith:" - Mixer: Tracks"}})
+if (mixerWindow.length&gt;0)
+window = mixerWindow[0]
+mixer = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Mixer"]})[0]
+strips = mixer.groups[1].splitterGroups[0].splitterGroups[0].lists[0].groups
+strip = strips.whose({description:text.replace(" channel strip group", "")})[0]
+} else {
+inspector = window.groups.whose({description:"Inspector"})[0]
+strip = inspector.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"})[0]
+}
+obj = strip.sliders.whose({description:"Fader"})[0]
 obj.decrement()
 value = obj.value()
 verbosity = kme.getvariable("fgVerbosity")
@@ -1950,7 +1863,7 @@ vo.output(msg)
 				<key>CreationDate</key>
 				<real>524316957.470954</real>
 				<key>ModificationDate</key>
-				<real>524316988.91480303</real>
+				<real>543406402.14014494</real>
 				<key>Name</key>
 				<string>Decrease Volume</string>
 				<key>Triggers</key>
@@ -2130,8 +2043,19 @@ vo.output("Track not found")</string>
 vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-group = window.groups.whose({description:"Inspector"})[0]
-obj = group.lists[0].lists[0].groups[0].sliders.whose({_not:[{description:"Fader"}]})[0]
+text = vo.voCursor.textUnderCursor()
+if (text.indexOf("channel strip group") &gt; -1) {
+mixerWindow = logic.windows.whose({name:{_endsWith:" - Mixer: Tracks"}})
+if (mixerWindow.length&gt;0)
+window = mixerWindow[0]
+mixer = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Mixer"]})[0]
+strips = mixer.groups[1].splitterGroups[0].splitterGroups[0].lists[0].groups
+strip = strips.whose({description:text.replace(" channel strip group", "")})[0]
+} else {
+inspector = window.groups.whose({description:"Inspector"})[0]
+strip = inspector.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"})[0]
+}
+obj = strip.sliders.whose({_not:[{description:"Fader"}]})[0]
 obj.increment()
 value = obj.value()
 verbosity = kme.getvariable("fgVerbosity")
@@ -2153,7 +2077,7 @@ vo.output(msg)
 				<key>CreationDate</key>
 				<real>524317302.40687901</real>
 				<key>ModificationDate</key>
-				<real>524678453.78141302</real>
+				<real>543406350.72913003</real>
 				<key>Name</key>
 				<string>Increase Pan</string>
 				<key>Triggers</key>
@@ -2224,8 +2148,19 @@ vo.output(msg)
 vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-group = window.groups.whose({description:"Inspector"})[0]
-obj = group.lists[0].lists[0].groups[0].sliders.whose({description:"Fader"})[0]
+text = vo.voCursor.textUnderCursor()
+if (text.indexOf("channel strip group") &gt; -1) {
+mixerWindow = logic.windows.whose({name:{_endsWith:" - Mixer: Tracks"}})
+if (mixerWindow.length&gt;0)
+window = mixerWindow[0]
+mixer = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Mixer"]})[0]
+strips = mixer.groups[1].splitterGroups[0].splitterGroups[0].lists[0].groups
+strip = strips.whose({description:text.replace(" channel strip group", "")})[0]
+} else {
+inspector = window.groups.whose({description:"Inspector"})[0]
+strip = inspector.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"})[0]
+}
+obj = strip.sliders.whose({description:"Fader"})[0]
 obj.increment()
 value = obj.value()
 verbosity = kme.getvariable("fgVerbosity")
@@ -2247,7 +2182,7 @@ vo.output(msg)
 				<key>CreationDate</key>
 				<real>524316626.78913403</real>
 				<key>ModificationDate</key>
-				<real>524317088.09851903</real>
+				<real>543406421.86430597</real>
 				<key>Name</key>
 				<string>Increase Volume</string>
 				<key>Triggers</key>
@@ -2314,15 +2249,22 @@ vo.output(msg)
 						<key>StopOnFailure</key>
 						<false/>
 						<key>Text</key>
-						<string>logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+						<string>vo = Application("VoiceOver")
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-group = window.groups.whose({description:"Inspector"})[0]
-strip = group.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"})[0]
-try {
-strip.popUpButtons[4].name()
-} catch (err) {
-strip.groups[strip.groups.length-1].popUpButtons[0].click()
+text = vo.voCursor.textUnderCursor()
+if (text.indexOf("channel strip group") &gt; -1) {
+mixerWindow = logic.windows.whose({name:{_endsWith:" - Mixer: Tracks"}})
+if (mixerWindow.length&gt;0)
+window = mixerWindow[0]
+mixer = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Mixer"]})[0]
+strips = mixer.groups[1].splitterGroups[0].splitterGroups[0].lists[0].groups
+strip = strips.whose({description:text.replace(" channel strip group", "")})[0]
+} else {
+inspector = window.groups.whose({description:"Inspector"})[0]
+strip = inspector.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"})[0]
 }
+strip.groups[strip.groups.length-1].popUpButtons[0].click()
 </string>
 						<key>TimeOutAbortsMacro</key>
 						<true/>
@@ -2337,7 +2279,7 @@ strip.groups[strip.groups.length-1].popUpButtons[0].click()
 				<key>CreationDate</key>
 				<real>543363599.91316998</real>
 				<key>ModificationDate</key>
-				<real>543363826.87484396</real>
+				<real>543404888.91841805</real>
 				<key>Name</key>
 				<string>Select Instrument Plugin</string>
 				<key>Triggers</key>
@@ -2407,14 +2349,20 @@ strip.groups[strip.groups.length-1].popUpButtons[0].click()
 						<string>vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-group = window.groups.whose({description:"Inspector"})[0]
-sp = ObjectSpecifier().staticTexts[0].name
-value = group.lists[0].groups.whose({_match:[sp,{_equals:"Track:"}]}).textFields[0].value()
-if (value == "") {
-value = group.lists[0].groups.whose({_match:[sp,{_equals:"Track:"}]}).staticTexts[1].name()
+text = vo.voCursor.textUnderCursor()
+if (text.indexOf("channel strip group") &gt; -1) {
+mixerWindow = logic.windows.whose({name:{_endsWith:" - Mixer: Tracks"}})
+if (mixerWindow.length&gt;0)
+window = mixerWindow[0]
+mixer = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Mixer"]})[0]
+strips = mixer.groups[1].splitterGroups[0].splitterGroups[0].lists[0].groups
+strip = strips.whose({description:text.replace(" channel strip group", "")})[0]
+} else {
+inspector = window.groups.whose({description:"Inspector"})[0]
+strip = inspector.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"})[0]
 }
-msg = ""+value
-vo.output(value)
+value = strip.textFields[0].description().replace(/, name$/, "")
+vo.output(""+value)
 </string>
 						<key>TimeOutAbortsMacro</key>
 						<true/>
@@ -2429,7 +2377,7 @@ vo.output(value)
 				<key>CreationDate</key>
 				<real>499548605.26653099</real>
 				<key>ModificationDate</key>
-				<real>524517860.84428197</real>
+				<real>543406917.81629705</real>
 				<key>Name</key>
 				<string>Speak Current Track</string>
 				<key>Triggers</key>
@@ -2726,13 +2674,29 @@ function single() {
 vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-tracks = window.groups[2].groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0]
-index = tracks.groups[0].checkboxes.description().indexOf("Mute")
+mixerWindow = logic.windows.whose({name:{_endsWith:" - Mixer: Tracks"}})
+if (mixerWindow.length&gt;0)
+window = mixerWindow[0]
+mixer = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Mixer"]})
+if (mixer.length &gt; 0) {
+strips = mixer[0].groups[1].splitterGroups[0].splitterGroups[0].lists[0].groups
+index = strips[0].checkboxes.name().indexOf("Mute")
 sp = ObjectSpecifier().checkboxes[index].value
-tracks = tracks.groups.whose({_match:[sp,1]}).description()
+tracks = strips.whose({_match:[sp,1]}).description()
+msg = ""
+for (t in tracks) {
+msg += tracks[t]+", "
+}
+} else {
+tracksArea = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Tracks"]})[0]
+strips = tracksArea.groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0].groups
+index = strips[0].checkboxes.description().indexOf("Mute")
+sp = ObjectSpecifier().checkboxes[index].value
+tracks = strips.whose({_match:[sp,1]}).description()
 msg = ""
 for (t in tracks) {
 msg += tracks[t].match(/“(.*?)”/)[1]+", "
+}
 }
 if (msg=="") msg = "No tracks are muted."
 else msg = tracks.length+" muted: "+msg
@@ -2743,10 +2707,20 @@ function double() {
 vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-tracks = window.groups[2].groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0]
-index = tracks.groups[0].checkboxes.description().indexOf("Mute")
+mixerWindow = logic.windows.whose({name:{_endsWith:" - Mixer: Tracks"}})
+if (mixerWindow.length&gt;0)
+window = mixerWindow[0]
+mixer = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Mixer"]})
+if (mixer.length &gt; 0) {
+strips = mixer[0].groups[1].splitterGroups[0].splitterGroups[0].lists[0].groups
+index = strips[0].checkboxes.name().indexOf("Mute")
+} else {
+tracksArea = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Tracks"]})[0]
+strips = tracksArea.groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0].groups
+index = strips[0].checkboxes.description().indexOf("Mute")
+}
 sp = ObjectSpecifier().checkboxes[index].value
-tracks = tracks.groups.whose({_match:[sp,1]}).checkboxes[index]()
+tracks = strips.whose({_match:[sp,1]}).checkboxes[index]()
 for (t in tracks) {
 tracks[t].click()
 }
@@ -2786,7 +2760,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>489906430.29756999</real>
 				<key>ModificationDate</key>
-				<real>524300422.746984</real>
+				<real>543422939.292732</real>
 				<key>Name</key>
 				<string>Speak Muted Tracks/Unmute All Tracks</string>
 				<key>Triggers</key>
@@ -2857,10 +2831,19 @@ if (runSingle) single()
 vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-group = window.groups.whose({description:"Inspector"})[0]
-
-
-value = group.lists[0].lists[0].groups[0].sliders.whose({_not:[{description:"Fader"}]})[0].value()
+text = vo.voCursor.textUnderCursor()
+if (text.indexOf("channel strip group") &gt; -1) {
+mixerWindow = logic.windows.whose({name:{_endsWith:" - Mixer: Tracks"}})
+if (mixerWindow.length&gt;0)
+window = mixerWindow[0]
+mixer = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Mixer"]})[0]
+strips = mixer.groups[1].splitterGroups[0].splitterGroups[0].lists[0].groups
+strip = strips.whose({description:text.replace(" channel strip group", "")})[0]
+} else {
+inspector = window.groups.whose({description:"Inspector"})[0]
+strip = inspector.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"})[0]
+}
+value = strip.sliders.whose({_not:[{description:"Fader"}]})[0].value()
 verbosity = kme.getvariable("fgVerbosity")
 if (verbosity == "long") msg = "Pan: "
 else msg = ""
@@ -2880,7 +2863,7 @@ vo.output(msg)
 				<key>CreationDate</key>
 				<real>524517480.09372503</real>
 				<key>ModificationDate</key>
-				<real>524517865.28767699</real>
+				<real>543406970.02836704</real>
 				<key>Name</key>
 				<string>Speak Pan</string>
 				<key>Triggers</key>
@@ -3134,99 +3117,6 @@ vo.output(msg)
 						<string>vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-description = window.groups[0].groups[0].groups[0].description()
-sliders = window.groups[0].groups[0].groups[0].sliders()
-msg = ""
-for (s in sliders) {
-msg+=sliders[s].description()+" "+sliders[s].value()+", "
-}
-msg += description
-vo.output(msg)
-window.groups[0].groups[0].groups[0].click()
-</string>
-						<key>TimeOutAbortsMacro</key>
-						<true/>
-						<key>TrimResults</key>
-						<true/>
-						<key>TrimResultsNew</key>
-						<true/>
-						<key>UseText</key>
-						<true/>
-					</dict>
-				</array>
-				<key>CreationDate</key>
-				<real>542277810.65664303</real>
-				<key>ModificationDate</key>
-				<real>542277865.03793097</real>
-				<key>Name</key>
-				<string>Speak Playhead Position copy</string>
-				<key>Triggers</key>
-				<array>
-					<dict>
-						<key>FireType</key>
-						<string>Pressed</string>
-						<key>KeyCode</key>
-						<integer>122</integer>
-						<key>MacroTriggerType</key>
-						<string>HotKey</string>
-						<key>Modifiers</key>
-						<integer>2048</integer>
-					</dict>
-				</array>
-				<key>UID</key>
-				<string>F8744C6B-E7D5-46AF-AC08-636F6F8CE435</string>
-			</dict>
-		</array>
-		<key>Name</key>
-		<string>Flogic</string>
-		<key>Targeting</key>
-		<dict>
-			<key>Targeting</key>
-			<string>Included</string>
-			<key>TargetingApps</key>
-			<array>
-				<dict>
-					<key>BundleIdentifier</key>
-					<string>com.apple.logic10</string>
-					<key>Name</key>
-					<string>Logic Pro X</string>
-					<key>NewFile</key>
-					<string>/Applications/Logic Pro X.app</string>
-				</dict>
-			</array>
-		</dict>
-		<key>ToggleMacroUID</key>
-		<string>5B52B143-96D5-42A8-BF6B-9D1E6FF1240F</string>
-		<key>UID</key>
-		<string>C52D9A0D-70FA-4012-B37E-ABE66F0A7841</string>
-	</dict>
-	<dict>
-		<key>Activate</key>
-		<string>Normal</string>
-		<key>CreationDate</key>
-		<real>499539568.21792102</real>
-		<key>Macros</key>
-		<array>
-			<dict>
-				<key>Actions</key>
-				<array>
-					<dict>
-						<key>DisplayKind</key>
-						<string>None</string>
-						<key>IncludeStdErr</key>
-						<true/>
-						<key>MacroActionType</key>
-						<string>ExecuteJavaScriptForAutomation</string>
-						<key>NotifyOnFailure</key>
-						<false/>
-						<key>Path</key>
-						<string></string>
-						<key>StopOnFailure</key>
-						<false/>
-						<key>Text</key>
-						<string>vo = Application("VoiceOver")
-logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
-window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
 sliders = window.groups[0].groups[0].groups[3].sliders()
 msg = ""
 for (s in sliders) {
@@ -3413,13 +3303,29 @@ function single() {
 vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-tracks = window.groups[2].groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0]
-index = tracks.groups[0].checkboxes.description().indexOf("Solo")
+mixerWindow = logic.windows.whose({name:{_endsWith:" - Mixer: Tracks"}})
+if (mixerWindow.length&gt;0)
+window = mixerWindow[0]
+mixer = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Mixer"]})
+if (mixer.length &gt; 0) {
+strips = mixer[0].groups[1].splitterGroups[0].splitterGroups[0].lists[0].groups
+index = strips[0].checkboxes.name().indexOf("Solo")
 sp = ObjectSpecifier().checkboxes[index].value
-tracks = tracks.groups.whose({_match:[sp,1]}).description()
+tracks = strips.whose({_match:[sp,1]}).description()
+msg = ""
+for (t in tracks) {
+msg += tracks[t]+", "
+}
+} else {
+tracksArea = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Tracks"]})[0]
+strips = tracksArea.groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0].groups
+index = strips[0].checkboxes.description().indexOf("Solo")
+sp = ObjectSpecifier().checkboxes[index].value
+tracks = strips.whose({_match:[sp,1]}).description()
 msg = ""
 for (t in tracks) {
 msg += tracks[t].match(/“(.*?)”/)[1]+", "
+}
 }
 if (msg=="") msg = "No tracks are soloed."
 else msg = tracks.length+" soloed: "+msg
@@ -3430,10 +3336,20 @@ function double() {
 vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-tracks = window.groups[2].groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0]
-index = tracks.groups[0].checkboxes.description().indexOf("Solo")
+mixerWindow = logic.windows.whose({name:{_endsWith:" - Mixer: Tracks"}})
+if (mixerWindow.length&gt;0)
+window = mixerWindow[0]
+mixer = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Mixer"]})
+if (mixer.length &gt; 0) {
+strips = mixer[0].groups[1].splitterGroups[0].splitterGroups[0].lists[0].groups
+index = strips[0].checkboxes.name().indexOf("Solo")
+} else {
+tracksArea = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Tracks"]})[0]
+strips = tracksArea.groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0].groups
+index = strips[0].checkboxes.description().indexOf("Solo")
+}
 sp = ObjectSpecifier().checkboxes[index].value
-tracks = tracks.groups.whose({_match:[sp,1]}).checkboxes[index]()
+tracks = strips.whose({_match:[sp,1]}).checkboxes[index]()
 for (t in tracks) {
 tracks[t].click()
 }
@@ -3473,7 +3389,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>524089506.15395403</real>
 				<key>ModificationDate</key>
-				<real>524301015.72112298</real>
+				<real>543423342.11302304</real>
 				<key>Name</key>
 				<string>Speak Soloed Tracks/Unsolo All Tracks</string>
 				<key>Triggers</key>
@@ -3546,8 +3462,19 @@ function single() {
 vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-group = window.groups.whose({description:"Inspector"})[0]
-value = group.lists.at(0).lists.at(0).groups.at(0).buttons.whose({name:{_endsWith:"clip level"}})[0].name()
+text = vo.voCursor.textUnderCursor()
+if (text.indexOf("channel strip group") &gt; -1) {
+mixerWindow = logic.windows.whose({name:{_endsWith:" - Mixer: Tracks"}})
+if (mixerWindow.length&gt;0)
+window = mixerWindow[0]
+mixer = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Mixer"]})[0]
+strips = mixer.groups[1].splitterGroups[0].splitterGroups[0].lists[0].groups
+strip = strips.whose({description:text.replace(" channel strip group", "")})[0]
+} else {
+inspector = window.groups.whose({description:"Inspector"})[0]
+strip = inspector.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"})[0]
+}
+value = strip.buttons.whose({name:{_endsWith:"clip level"}})[0].name()
 msg = ""+value.replace(", clip level","")
 vo.output(msg)
 }
@@ -3556,9 +3483,21 @@ function double() {
 vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-group = window.groups.whose({description:"Inspector"})[0]
-group.lists.at(0).lists.at(0).groups.at(0).buttons.whose({name:{_endsWith:"clip level"}})[0].click()
-value = group.lists.at(0).lists.at(0).groups.at(0).buttons.whose({name:{_endsWith:"clip level"}})[0].name()
+text = vo.voCursor.textUnderCursor()
+if (text.indexOf("channel strip group") &gt; -1) {
+mixerWindow = logic.windows.whose({name:{_endsWith:" - Mixer: Tracks"}})
+if (mixerWindow.length&gt;0)
+window = mixerWindow[0]
+mixer = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Mixer"]})[0]
+strips = mixer.groups[1].splitterGroups[0].splitterGroups[0].lists[0].groups
+strip = strips.whose({description:text.replace(" channel strip group", "")})[0]
+} else {
+inspector = window.groups.whose({description:"Inspector"})[0]
+strip = inspector.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"})[0]
+}
+obj = strip.buttons.whose({name:{_endsWith:"clip level"}})[0]
+obj.click()
+value = obj.name()
 msg = ""+value.replace(", clip level","")
 vo.output(msg)
 }
@@ -3595,7 +3534,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>499551222.87871099</real>
 				<key>ModificationDate</key>
-				<real>524517874.47950298</real>
+				<real>543407091.60972703</real>
 				<key>Name</key>
 				<string>Speak/Reset Clip Level</string>
 				<key>Triggers</key>
@@ -3900,8 +3839,18 @@ function single() {
 vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
+text = vo.voCursor.textUnderCursor()
+if (text.indexOf("channel strip group") &gt; -1) {
+mixerWindow = logic.windows.whose({name:{_endsWith:" - Mixer: Tracks"}})
+if (mixerWindow.length&gt;0)
+window = mixerWindow[0]
+mixer = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Mixer"]})[0]
+strips = mixer.groups[1].splitterGroups[0].splitterGroups[0].lists[0].groups
+strip = strips.whose({description:text.replace(" channel strip group", "")})[0]
+} else {
 inspector = window.groups.whose({description:"Inspector"})[0]
 strip = inspector.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"})[0]
+}
 value = strip.popUpButtons.whose({name:{_contains:"Group"}})[0].name()
 vo.output(""+value)
 }
@@ -3910,8 +3859,18 @@ function double() {
 vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
+text = vo.voCursor.textUnderCursor()
+if (text.indexOf("channel strip group") &gt; -1) {
+mixerWindow = logic.windows.whose({name:{_endsWith:" - Mixer: Tracks"}})
+if (mixerWindow.length&gt;0)
+window = mixerWindow[0]
+mixer = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Mixer"]})[0]
+strips = mixer.groups[1].splitterGroups[0].splitterGroups[0].lists[0].groups
+strip = strips.whose({description:text.replace(" channel strip group", "")})[0]
+} else {
 inspector = window.groups.whose({description:"Inspector"})[0]
 strip = inspector.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"})[0]
+}
 strip.popUpButtons.whose({name:{_contains:"Group"}})[0].click()
 }
 
@@ -3947,7 +3906,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>499645317.75343698</real>
 				<key>ModificationDate</key>
-				<real>543362826.67765498</real>
+				<real>543407141.30271995</real>
 				<key>Name</key>
 				<string>Speak/Select Group</string>
 				<key>Triggers</key>
@@ -4020,6 +3979,20 @@ function single() {
 vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
+text = vo.voCursor.textUnderCursor()
+if (text.indexOf("channel strip group") &gt; -1) {
+mixerWindow = logic.windows.whose({name:{_endsWith:" - Mixer: Tracks"}})
+if (mixerWindow.length&gt;0)
+window = mixerWindow[0]
+mixer = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Mixer"]})[0]
+strips = mixer.groups[1].splitterGroups[0].splitterGroups[0].lists[0].groups
+strip = strips.whose({description:text.replace(" channel strip group", "")})[0]
+try {
+value = strip.popUpButtons[3].name()
+} catch(err) {
+value = strip.groups[strip.groups.length-1].name()
+}
+} else {
 inspector = window.groups.whose({description:"Inspector"})[0]
 strip = inspector.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"})[0]
 try {
@@ -4027,18 +4000,35 @@ value = strip.popUpButtons[4].name()
 } catch(err) {
 value = strip.groups[strip.groups.length-1].name()
 }
+}
 vo.output(""+value)
 }
 
 function double() {
+vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-group = window.groups.whose({description:"Inspector"})[0]
-strip = group.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"})[0]
+text = vo.voCursor.textUnderCursor()
+if (text.indexOf("channel strip group") &gt; -1) {
+mixerWindow = logic.windows.whose({name:{_endsWith:" - Mixer: Tracks"}})
+if (mixerWindow.length&gt;0)
+window = mixerWindow[0]
+mixer = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Mixer"]})[0]
+strips = mixer.groups[1].splitterGroups[0].splitterGroups[0].lists[0].groups
+strip = strips.whose({description:text.replace(" channel strip group", "")})[0]
+try {
+strip.popUpButtons[3].click()
+} catch (err) {
+strip.groups[strip.groups.length-1].buttons[0].click()
+}
+} else {
+inspector = window.groups.whose({description:"Inspector"})[0]
+strip = inspector.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"})[0]
 try {
 strip.popUpButtons[4].click()
 } catch (err) {
 strip.groups[strip.groups.length-1].buttons[0].click()
+}
 }
 }
 
@@ -4074,7 +4064,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>499644803.65713799</real>
 				<key>ModificationDate</key>
-				<real>543363543.910285</real>
+				<real>543404753.88217998</real>
 				<key>Name</key>
 				<string>Speak/Select Input</string>
 				<key>Triggers</key>
@@ -5423,20 +5413,45 @@ function single() {
 vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
+text = vo.voCursor.textUnderCursor()
+if (text.indexOf("channel strip group") &gt; -1) {
+mixerWindow = logic.windows.whose({name:{_endsWith:" - Mixer: Tracks"}})
+if (mixerWindow.length&gt;0)
+window = mixerWindow[0]
+mixer = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Mixer"]})[0]
+strips = mixer.groups[1].splitterGroups[0].splitterGroups[0].lists[0].groups
+strip = strips.whose({description:text.replace(" channel strip group", "")})[0]
+} else {
 inspector = window.groups.whose({description:"Inspector"})[0]
-strip = inspector.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"})[1]
-value = strip.description()
+strip = inspector.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"})[0]
+}
+if (strip.popUpButtons.length &gt; 2)
+obj = strip.popUpButtons[2]
+else obj = strip.popUpButtons[1]
+value = obj.name()
 vo.output(""+value)
 }
 
 function double() {
+vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
+text = vo.voCursor.textUnderCursor()
+if (text.indexOf("channel strip group") &gt; -1) {
+mixerWindow = logic.windows.whose({name:{_endsWith:" - Mixer: Tracks"}})
+if (mixerWindow.length&gt;0)
+window = mixerWindow[0]
+mixer = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Mixer"]})[0]
+strips = mixer.groups[1].splitterGroups[0].splitterGroups[0].lists[0].groups
+strip = strips.whose({description:text.replace(" channel strip group", "")})[0]
+} else {
 inspector = window.groups.whose({description:"Inspector"})[0]
 strip = inspector.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"})[0]
-if (strip.popUpButtons.length == 3)
-strip.popUpButtons[2].click()
-else strip.popUpButtons[3].click()
+}
+if (strip.popUpButtons.length &gt; 2)
+obj = strip.popUpButtons[2]
+else obj = strip.popUpButtons[1]
+obj.click()
 }
 
 kme = Application("Keyboard Maestro Engine")
@@ -5471,7 +5486,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>499644545.45245498</real>
 				<key>ModificationDate</key>
-				<real>543363425.28896499</real>
+				<real>543404277.66030598</real>
 				<key>Name</key>
 				<string>Speak/Select Output</string>
 				<key>Triggers</key>
@@ -5544,18 +5559,42 @@ function single() {
 vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
+text = vo.voCursor.textUnderCursor()
+if (text.indexOf("channel strip group") &gt; -1) {
+mixerWindow = logic.windows.whose({name:{_endsWith:" - Mixer: Tracks"}})
+if (mixerWindow.length&gt;0)
+window = mixerWindow[0]
+mixer = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Mixer"]})[0]
+strips = mixer.groups[1].splitterGroups[0].splitterGroups[0].lists[0].groups
+strip = strips.whose({description:text.replace(" channel strip group", "")})[0]
+value = strip.buttons[0].name()
+} else {
 inspector = window.groups.whose({description:"Inspector"})[0]
 strip = inspector.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"})[0]
 value = strip.popUpButtons[0].name()
+}
+
 vo.output(""+value)
 }
 
 function double() {
+vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
+text = vo.voCursor.textUnderCursor()
+if (text.indexOf("channel strip group") &gt; -1) {
+mixerWindow = logic.windows.whose({name:{_endsWith:" - Mixer: Tracks"}})
+if (mixerWindow.length&gt;0)
+window = mixerWindow[0]
+mixer = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Mixer"]})[0]
+strips = mixer.groups[1].splitterGroups[0].splitterGroups[0].lists[0].groups
+strip = strips.whose({description:text.replace(" channel strip group", "")})[0]
+strip.buttons[0].click()
+} else {
 inspector = window.groups.whose({description:"Inspector"})[0]
 strip = inspector.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"})[0]
 strip.popUpButtons[0].click()
+}
 }
 
 kme = Application("Keyboard Maestro Engine")
@@ -5590,7 +5629,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>499645164.66727</real>
 				<key>ModificationDate</key>
-				<real>543362907.48752105</real>
+				<real>543403762.86502898</real>
 				<key>Name</key>
 				<string>Speak/Select Preset</string>
 				<key>Triggers</key>
@@ -5663,8 +5702,19 @@ function single() {
 vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-group = window.groups.whose({description:"Inspector"})[0]
-value = group.lists[0].lists[0].groups[0].checkboxes["Mute"].value()
+text = vo.voCursor.textUnderCursor()
+if (text.indexOf("channel strip group") &gt; -1) {
+mixerWindow = logic.windows.whose({name:{_endsWith:" - Mixer: Tracks"}})
+if (mixerWindow.length&gt;0)
+window = mixerWindow[0]
+mixer = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Mixer"]})[0]
+strips = mixer.groups[1].splitterGroups[0].splitterGroups[0].lists[0].groups
+strip = strips.whose({description:text.replace(" channel strip group", "")})[0]
+} else {
+inspector = window.groups.whose({description:"Inspector"})[0]
+strip = inspector.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"})[0]
+}
+value = strip.checkboxes["Mute"].value()
 verbosity = kme.getvariable("fgVerbosity")
 if (verbosity == "long") msg = "Mute "
 else msg = ""
@@ -5677,8 +5727,19 @@ function double() {
 vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-group = window.groups.whose({description:"Inspector"})[0]
-checkbox = group.lists[0].lists[0].groups[0].checkboxes["Mute"]
+text = vo.voCursor.textUnderCursor()
+if (text.indexOf("channel strip group") &gt; -1) {
+mixerWindow = logic.windows.whose({name:{_endsWith:" - Mixer: Tracks"}})
+if (mixerWindow.length&gt;0)
+window = mixerWindow[0]
+mixer = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Mixer"]})[0]
+strips = mixer.groups[1].splitterGroups[0].splitterGroups[0].lists[0].groups
+strip = strips.whose({description:text.replace(" channel strip group", "")})[0]
+} else {
+inspector = window.groups.whose({description:"Inspector"})[0]
+strip = inspector.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"})[0]
+}
+checkbox = strip.checkboxes["Mute"]
 checkbox.click()
 value = checkbox.value()
 verbosity = kme.getvariable("fgVerbosity")
@@ -5721,7 +5782,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>499549905.49280399</real>
 				<key>ModificationDate</key>
-				<real>524517896.19230002</real>
+				<real>543402821.975178</real>
 				<key>Name</key>
 				<string>Speak/Toggle Mute</string>
 				<key>Triggers</key>
@@ -5794,8 +5855,19 @@ function single() {
 vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-group = window.groups.whose({description:"Inspector"})[0]
-value = group.lists[0].lists[0].groups[0].checkboxes["Solo"].value()
+text = vo.voCursor.textUnderCursor()
+if (text.indexOf("channel strip group") &gt; -1) {
+mixerWindow = logic.windows.whose({name:{_endsWith:" - Mixer: Tracks"}})
+if (mixerWindow.length&gt;0)
+window = mixerWindow[0]
+mixer = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Mixer"]})[0]
+strips = mixer.groups[1].splitterGroups[0].splitterGroups[0].lists[0].groups
+strip = strips.whose({description:text.replace(" channel strip group", "")})[0]
+} else {
+inspector = window.groups.whose({description:"Inspector"})[0]
+strip = inspector.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"})[0]
+}
+value = strip.checkboxes["Solo"].value()
 verbosity = kme.getvariable("fgVerbosity")
 if (verbosity == "long") msg = "Solo "
 else msg = ""
@@ -5808,8 +5880,19 @@ function double() {
 vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-group = window.groups.whose({description:"Inspector"})[0]
-checkbox = group.lists[0].lists[0].groups[0].checkboxes["Solo"]
+text = vo.voCursor.textUnderCursor()
+if (text.indexOf("channel strip group") &gt; -1) {
+mixerWindow = logic.windows.whose({name:{_endsWith:" - Mixer: Tracks"}})
+if (mixerWindow.length&gt;0)
+window = mixerWindow[0]
+mixer = window.groups.whose({_match:[ObjectSpecifier().groups[1].description,"Mixer"]})[0]
+strips = mixer.groups[1].splitterGroups[0].splitterGroups[0].lists[0].groups
+strip = strips.whose({description:text.replace(" channel strip group", "")})[0]
+} else {
+inspector = window.groups.whose({description:"Inspector"})[0]
+strip = inspector.lists[0].lists[0].groups.whose({roleDescription:"channel strip group"})[0]
+}
+checkbox = strip.checkboxes["Solo"]
 checkbox.click()
 value = checkbox.value()
 verbosity = kme.getvariable("fgVerbosity")
@@ -5852,7 +5935,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>499551018.94458997</real>
 				<key>ModificationDate</key>
-				<real>533999434.39420998</real>
+				<real>543425404.08473301</real>
 				<key>Name</key>
 				<string>Speak/Toggle Solo</string>
 				<key>Triggers</key>
@@ -6233,7 +6316,7 @@ script = `&lt;array&gt;
 		&lt;key&gt;MacroGroupUID&lt;/key&gt;
 		&lt;string&gt;64EAC9F9-2720-4CE3-99DE-8A54F07FC4E9&lt;/string&gt;
 		&lt;key&gt;ToggleMode&lt;/key&gt;
-		&lt;string&gt;Activate&lt;/string&gt;
+		&lt;string&gt;Toggle&lt;/string&gt;
 	&lt;/dict&gt;
 &lt;/array&gt;`
 Application("VoiceOver").output("Inspector On")
@@ -6273,7 +6356,7 @@ kme.playSound(Path("/System/Library/Sounds/Tink.aiff"))
 				<key>CreationDate</key>
 				<real>533998645.120296</real>
 				<key>ModificationDate</key>
-				<real>534050737.49337399</real>
+				<real>543370093.80726695</real>
 				<key>Name</key>
 				<string>Toggle INspector</string>
 				<key>Triggers</key>
@@ -6599,97 +6682,6 @@ vo.output("Verbosity: "+verbosity)</string>
 		<string>5B52B143-96D5-42A8-BF6B-9D1E6FF1240F</string>
 		<key>UID</key>
 		<string>C52D9A0D-70FA-4012-B37E-ABE66F0A7841</string>
-	</dict>
-	<dict>
-		<key>Activate</key>
-		<string>Normal</string>
-		<key>CreationDate</key>
-		<real>499546191.00478101</real>
-		<key>Macros</key>
-		<array>
-			<dict>
-				<key>Actions</key>
-				<array>
-					<dict>
-						<key>DisplayKind</key>
-						<string>None</string>
-						<key>IncludeStdErr</key>
-						<true/>
-						<key>MacroActionType</key>
-						<string>ExecuteJavaScriptForAutomation</string>
-						<key>NotifyOnFailure</key>
-						<false/>
-						<key>Path</key>
-						<string></string>
-						<key>StopOnFailure</key>
-						<false/>
-						<key>Text</key>
-						<string>currentCommand = "bs"
-
-vo = Application("VoiceOver")
-logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
-window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-tracks = window.groups[2].groups[1].splitterGroups[0].splitterGroups[1].scrollAreas[0].groups[0].groups
-track = tracks.whose({description:vo.voCursor.textUnderCursor().replace(" group", "")})[0]
-//console.log(track.description())
-
-tracks[0].buttons.whose({description:"Track Alternatives Menu"})[0].click()
-</string>
-						<key>TimeOutAbortsMacro</key>
-						<true/>
-						<key>TrimResults</key>
-						<true/>
-						<key>TrimResultsNew</key>
-						<true/>
-						<key>UseText</key>
-						<true/>
-					</dict>
-				</array>
-				<key>CreationDate</key>
-				<real>540662298.71290398</real>
-				<key>ModificationDate</key>
-				<real>540664351.96511996</real>
-				<key>Name</key>
-				<string>Track Alternatives Menu</string>
-				<key>Triggers</key>
-				<array>
-					<dict>
-						<key>FireType</key>
-						<string>Pressed</string>
-						<key>KeyCode</key>
-						<integer>42</integer>
-						<key>MacroTriggerType</key>
-						<string>HotKey</string>
-						<key>Modifiers</key>
-						<integer>0</integer>
-					</dict>
-				</array>
-				<key>UID</key>
-				<string>2757F5D8-01AA-43C2-AB62-09556100D712</string>
-			</dict>
-		</array>
-		<key>Name</key>
-		<string>Flogic Inspector</string>
-		<key>Targeting</key>
-		<dict>
-			<key>Targeting</key>
-			<string>Included</string>
-			<key>TargetingApps</key>
-			<array>
-				<dict>
-					<key>BundleIdentifier</key>
-					<string>com.apple.logic10</string>
-					<key>Name</key>
-					<string>Logic Pro X</string>
-					<key>NewFile</key>
-					<string>/Applications/Logic Pro X.app</string>
-				</dict>
-			</array>
-		</dict>
-		<key>ToggleMacroUID</key>
-		<string>9749998D-2FB3-4417-B4AB-A3A8D60962C2</string>
-		<key>UID</key>
-		<string>64EAC9F9-2720-4CE3-99DE-8A54F07FC4E9</string>
 	</dict>
 </array>
 </plist>
