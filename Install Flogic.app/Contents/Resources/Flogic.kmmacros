@@ -7,6 +7,10 @@
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -154,6 +158,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -294,6 +302,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -435,6 +447,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -575,6 +591,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -715,6 +735,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -853,6 +877,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -993,6 +1021,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -1133,6 +1165,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -1273,6 +1309,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -1370,6 +1410,10 @@ last.click()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499539568.21792102</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -1506,6 +1550,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -1609,6 +1657,10 @@ vo.output(msg)
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499539568.21792102</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -1701,6 +1753,10 @@ vo.output(msg)
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -1806,6 +1862,10 @@ vo.output(msg)
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -1911,6 +1971,10 @@ vo.output(msg)
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499539568.21792102</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -2020,6 +2084,10 @@ vo.output("Track not found")</string>
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -2125,6 +2193,10 @@ vo.output(msg)
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -2230,6 +2302,10 @@ vo.output(msg)
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -2326,7 +2402,221 @@ strip.groups[strip.groups.length-1].popUpButtons[0].click()
 		<key>Activate</key>
 		<string>Normal</string>
 		<key>CreationDate</key>
+		<real>499539568.21792102</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>KeyCode</key>
+						<integer>47</integer>
+						<key>MacroActionType</key>
+						<string>SimulateKeystroke</string>
+						<key>Modifiers</key>
+						<integer>4352</integer>
+						<key>ReleaseAll</key>
+						<false/>
+						<key>TargetApplication</key>
+						<dict/>
+						<key>TargetingType</key>
+						<string>Front</string>
+					</dict>
+					<dict>
+						<key>DisplayKind</key>
+						<string>None</string>
+						<key>IncludeStdErr</key>
+						<true/>
+						<key>MacroActionType</key>
+						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
+						<key>Path</key>
+						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
+						<key>Text</key>
+						<string>vo = Application("VoiceOver")
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
+obj = window.groups[0].groups[0].popUpButtons.whose({help:{_contains:"Division display."}})[0]
+msg = ""+obj.value()+", Division"
+vo.output(msg)
+</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>TrimResultsNew</key>
+						<true/>
+						<key>UseText</key>
+						<true/>
+					</dict>
+				</array>
+				<key>CreationDate</key>
+				<real>543440712.04475796</real>
+				<key>ModificationDate</key>
+				<real>543440827.73105395</real>
+				<key>Name</key>
+				<string>Set Next Higher Division</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>47</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>4352</integer>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>6E43894B-6269-4DA2-8FB8-4A1572162119</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>Flogic</string>
+		<key>Targeting</key>
+		<dict>
+			<key>Targeting</key>
+			<string>Included</string>
+			<key>TargetingApps</key>
+			<array>
+				<dict>
+					<key>BundleIdentifier</key>
+					<string>com.apple.logic10</string>
+					<key>Name</key>
+					<string>Logic Pro X</string>
+					<key>NewFile</key>
+					<string>/Applications/Logic Pro X.app</string>
+				</dict>
+			</array>
+		</dict>
+		<key>ToggleMacroUID</key>
+		<string>5B52B143-96D5-42A8-BF6B-9D1E6FF1240F</string>
+		<key>UID</key>
+		<string>C52D9A0D-70FA-4012-B37E-ABE66F0A7841</string>
+	</dict>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>CreationDate</key>
+		<real>499539568.21792102</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>KeyCode</key>
+						<integer>43</integer>
+						<key>MacroActionType</key>
+						<string>SimulateKeystroke</string>
+						<key>Modifiers</key>
+						<integer>4352</integer>
+						<key>ReleaseAll</key>
+						<false/>
+						<key>TargetApplication</key>
+						<dict/>
+						<key>TargetingType</key>
+						<string>Front</string>
+					</dict>
+					<dict>
+						<key>DisplayKind</key>
+						<string>None</string>
+						<key>IncludeStdErr</key>
+						<true/>
+						<key>MacroActionType</key>
+						<string>ExecuteJavaScriptForAutomation</string>
+						<key>NotifyOnFailure</key>
+						<false/>
+						<key>Path</key>
+						<string></string>
+						<key>StopOnFailure</key>
+						<false/>
+						<key>Text</key>
+						<string>vo = Application("VoiceOver")
+logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
+window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
+obj = window.groups[0].groups[0].popUpButtons.whose({help:{_contains:"Division display."}})[0]
+msg = ""+obj.value()+", Division"
+vo.output(msg)
+</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>TrimResultsNew</key>
+						<true/>
+						<key>UseText</key>
+						<true/>
+					</dict>
+				</array>
+				<key>CreationDate</key>
+				<real>543440834.43560398</real>
+				<key>ModificationDate</key>
+				<real>543440850.106112</real>
+				<key>Name</key>
+				<string>Set Next Lower Division</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>43</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>4352</integer>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>A0A1F4B3-7D8A-49E4-A6B5-DCA9587D953D</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>Flogic</string>
+		<key>Targeting</key>
+		<dict>
+			<key>Targeting</key>
+			<string>Included</string>
+			<key>TargetingApps</key>
+			<array>
+				<dict>
+					<key>BundleIdentifier</key>
+					<string>com.apple.logic10</string>
+					<key>Name</key>
+					<string>Logic Pro X</string>
+					<key>NewFile</key>
+					<string>/Applications/Logic Pro X.app</string>
+				</dict>
+			</array>
+		</dict>
+		<key>ToggleMacroUID</key>
+		<string>5B52B143-96D5-42A8-BF6B-9D1E6FF1240F</string>
+		<key>UID</key>
+		<string>C52D9A0D-70FA-4012-B37E-ABE66F0A7841</string>
+	</dict>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -2425,6 +2715,10 @@ vo.output(""+value)
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499539568.21792102</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -2558,6 +2852,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499539568.21792102</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -2649,6 +2947,10 @@ vo.output(msg)
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499539568.21792102</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -2808,6 +3110,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -2911,6 +3217,10 @@ vo.output(msg)
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499539568.21792102</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -3003,6 +3313,10 @@ vo.output(msg)
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499539568.21792102</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -3095,6 +3409,10 @@ vo.output(msg)
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499539568.21792102</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -3186,6 +3504,10 @@ vo.output(msg)
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -3278,6 +3600,10 @@ vo.output(value)
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499539568.21792102</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -3437,6 +3763,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -3582,6 +3912,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499539568.21792102</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -3698,6 +4032,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499539568.21792102</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -3723,7 +4061,7 @@ function single() {
 vo = Application("VoiceOver")
 logic = Application("System Events").applicationProcesses.byName("Logic Pro X")
 window = logic.windows.whose({name:{_endsWith:" - Tracks"}})[0]
-obj = window.groups[0].groups[0].popUpButtons[2]()
+obj = window.groups[0].groups[0].popUpButtons.whose({help:{_contains:"Division display."}})[0]
 msg = ""+obj.value()+", Division"
 vo.output(msg)
 }
@@ -3766,7 +4104,7 @@ if (runSingle) single()
 				<key>CreationDate</key>
 				<real>499545504.50963801</real>
 				<key>ModificationDate</key>
-				<real>524301168.95211101</real>
+				<real>543440656.86305702</real>
 				<key>Name</key>
 				<string>Speak/Select Division Value</string>
 				<key>Triggers</key>
@@ -3814,6 +4152,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -3954,6 +4296,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -4112,6 +4458,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -4244,6 +4594,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -4371,6 +4725,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -4503,6 +4861,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -4629,6 +4991,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -4756,6 +5122,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -4883,6 +5253,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -5010,6 +5384,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -5136,6 +5514,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -5262,6 +5644,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -5388,6 +5774,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -5534,6 +5924,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -5677,6 +6071,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -5830,6 +6228,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499546191.00478101</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -5983,6 +6385,10 @@ if (runSingle) single()
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499539568.21792102</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -6094,6 +6500,10 @@ vo.output(msg)
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499539568.21792102</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -6253,6 +6663,10 @@ Application("VoiceOver").output(msg)
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499539568.21792102</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -6414,6 +6828,10 @@ kme.playSound(Path("/System/Library/Sounds/Tink.aiff"))
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499539568.21792102</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -6507,6 +6925,10 @@ vo.output(msg)
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499539568.21792102</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -6600,6 +7022,10 @@ vo.output(msg)
 		<string>Normal</string>
 		<key>CreationDate</key>
 		<real>499539568.21792102</real>
+		<key>FocussedWindowConditionType</key>
+		<string>TitleMatches</string>
+		<key>FocussedWindowTitle</key>
+		<string> Tracks$</string>
 		<key>Macros</key>
 		<array>
 			<dict>
