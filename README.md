@@ -1,8 +1,6 @@
 # Flogic
 ## Welcome to Flogic
-Keyboard Maestro Macros for Voiceover users using Logic Pro x
-
-*WARNING*: USE AT YOUR OWN RISK! This is in alpha cycle. Many things may not work and change frequently without notice.
+**Stale: Flogic no longer works in recent versions of Logic, and development is not active.**
 
 Flogic is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY, expressed or implied, of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. Please see the [GNU General Public License](http://www.gnu.org/licenses/) for more details.
 
